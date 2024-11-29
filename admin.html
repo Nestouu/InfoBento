@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestion des Articles</title>
+    <link rel="stylesheet" href="./style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./onglet.js"></script>
+    <script type="module" src="./article.js"></script>
+    <style>
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+        .tab-buttons button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue, Administrateur</h1>
+    </header>
+    <p>Voici l'interface Administrateur</p>
+
+    <!-- Boutons pour naviguer entre les onglets -->
+    <div class="tab-buttons">
+        <button data-tab="gestion" class="tab-button active">Gestion</button>
+        <button data-tab="other" class="tab-button">Autre Onglet</button>
+    </div>
+
+    <!-- Section Gestion -->
+    <div id="gestion" class="tab active">
+        <h1>Gestion des Articles</h1>
+
+        <!-- Liste des articles -->
+        <h2>Liste des Articles</h2>
+        <ul id="articles-list"></ul> 
+
+        <!-- Formulaire pour ajouter un nouvel article -->
+        <h2>Ajouter un Article</h2>
+        <form id="article-form">
+            <input type="text" id="title" placeholder="Titre" required />
+            <textarea id="content" placeholder="Contenu" required></textarea>
+            <label for="image-url">Ajouter une URL d'image (WEBP uniquement) :</label>
+            <input type="url" id="image-url" placeholder="https://example.com/image.webp" required />
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <!-- Formulaire pour modifier un article -->
+        <h2>Modifier un Article</h2>
+        <form id="edit-article-form" style="display: none;">
+            <input type="hidden" id="edit-id" />
+            <input type="text" id="edit-title" placeholder="Titre" required />
+            <textarea id="edit-content" placeholder="Contenu" required></textarea>
+            <label for="edit-image-url">Modifier l'URL de l'image :</label>
+            <input type="url" id="edit-image-url" placeholder="https://example.com/image.webp" />
+            <button type="submit">Modifier</button>
+        </form>
+    </div>
+
+    <!-- Section pour un autre onglet -->
+    <div id="other" class="tab">
+        <h1>Autre Onglet</h1>
+        <p>Contenu d'un autre onglet ici...</p>
+    </div>
+</body>
+</html>

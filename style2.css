@@ -1,0 +1,125 @@
+/* Styles globaux */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; /* Couleur de fond sombre */
+    color: #ffffff; /* Texte blanc */
+}
+
+/* Header */
+header {
+    background-color: #000000; /* Fond noir */
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Section des articles */
+#articles-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Carte d'article */
+.article-card {
+    background-color: #121212; /* Fond des articles */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.article-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.article-card h2 {
+    font-size: 20px;
+    color: #00ff00; /* Titre en vert fluo */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.article-card .highlight {
+    font-size: 18px;
+    color: #00ff00; /* Phrase clé en vert */
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.article-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Boutons */
+.article-card button {
+    background-color: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px 5px 0 0;
+}
+
+.article-card button:hover {
+    background-color: #00cc00; /* Couleur plus sombre au survol */
+}
+
+/* Formulaires */
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #00ff00;
+}
+
+form button {
+    background-color: #00ff00;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #00cc00; /* Couleur plus sombre au survol */
+}
