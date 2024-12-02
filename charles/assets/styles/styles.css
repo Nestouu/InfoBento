@@ -1,0 +1,295 @@
+/* styles.css */
+body {
+    
+    margin: 0;
+    font-family: "inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: "inter", sans-serif;
+    background-color: #1c1c1c;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espace entre les groupes */
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: #fff;
+    position: relative;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    margin-left: 50px;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #4CE0B3;
+}
+
+.nav-item.special {
+    color: #4CE0B3;
+    font-size: 20px;
+    font-style: bold;
+}
+
+/* CTA Button */
+.cta-container {
+    margin-left: auto; /* Pousse le bouton à l'extrême droite */
+}
+
+.cta-button {
+    color: #ffffff; /* Couleur du texte */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #4CE0B3; /* Bordure blanche */
+
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00cc88; /* Couleur plus foncée au survol */
+    transform: scale(1.05); /* Mise en avant légère */
+    border-color: #00cc88; /* Change la couleur de la bordure */
+}
+
+/* Menu Checkbox (Burger) */
+.menu-checkbox {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.menu-icon .burger-line {
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Header ajusté pour mobile */
+    .header {
+        flex-direction: column; /* Colonne pour mobile */
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #1c1c1c;
+        padding: 1rem 0;
+        z-index: 1000;
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    /* Afficher les liens si la case est cochée */
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .nav-item {
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    /* CTA sur mobile */
+    .cta-container {
+        align-self: stretch; /* Occupe toute la largeur */
+        margin: 1rem 0 0;
+    }
+
+    .cta-button {
+        width: 100%; /* Bouton pleine largeur */
+        text-align: center;
+    }
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 colonnes égales */
+    grid-template-rows: repeat(2, 390px); /* 2 rangées avec une hauteur de 150px */
+    gap: 20px; /* Espacement entre colonnes et rangées */
+    margin-top: 20px; /* Marge en haut */
+    margin-bottom: 20px; /* Marge en bas */
+    margin-left: 20px; /* Marge à gauche */
+    margin-right: 20px; /* Marge à droite */
+    background-color: #1c1c1c;
+}
+
+
+.grid-interior-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 12 colonnes égales */
+    grid-template-rows: repeat(2, 185px); /* 2 rangées avec une hauteur de 150px */
+    gap: 20px; /* Espacement entre colonnes et rangées */
+    background-color: #1c1c1c; /* Couleur des blocs */
+    margin-bottom: 20px;
+}
+
+/*grid secondaire*/
+
+.grid-secondary {
+    background-color: #1c1c1c; /* Couleur des blocs */
+    color: #fff; /* Couleur du texte */
+    border-radius: 8px; /* Coins arrondis */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem; /* Taille du texte */
+}
+
+/* Grid Finale */
+.grid-item {
+    background-color: #333; /* Couleur des blocs */
+    color: #fff; /* Couleur du texte */
+    border-radius: 8px; /* Coins arrondis */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem; /* Taille du texte */
+}
+
+/* Breakpoint for Mobile */
+@media (max-width: 768px) {
+    .grid-layout {
+        display: flex; /* Flexbox pour disposition verticale */
+        flex-direction: column; /* Empile les éléments verticalement */
+        gap: 20px; /* Espacement vertical entre les blocs */
+    }
+
+    .grid-interior-1 {
+        display: flex; /* Flexbox pour les sous-grilles */
+        flex-direction: column; /* Empile les blocs secondaires */
+        gap: 20px;
+        margin-bottom: 0px;
+    }
+
+    .grid-item {
+        width: 100%; /* Les éléments occupent toute la largeur */
+        margin: 0; /* Pas de marge interne */
+    }
+}
+
+/* Responsive Design */
+
+/* Pour les écrans moyens (tablettes) */
+@media (max-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: repeat(6, 1fr); /* Réduire à 6 colonnes */
+    }
+}
+
+/* Pour les écrans petits (mobiles) */
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr); /* Réduire à 2 colonnes */
+    }
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: #C6C6C6;
+    position: relative;
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-item {
+    text-decoration: none;
+    color: #C6C6C6;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-item:hover {
+    color: #00ff99;
+}
+
+.footer-right {
+    display: flex; /* Aligner les span en ligne */
+    gap: 1.25rem; /* 20px (converti en rem) */
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+}
