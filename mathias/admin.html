@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Gestion des Articles</title>
-    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet" href="./article.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="./onglet.js"></script>
     <script type="module" src="./article.js"></script>
+    <script type="module" src="./video.js"></script>
     <style>
         .tab {
             display: none;
@@ -28,12 +29,12 @@
 
     <!-- Boutons pour naviguer entre les onglets -->
     <div class="tab-buttons">
-        <button data-tab="gestion" class="tab-button active">Gestion</button>
-        <button data-tab="other" class="tab-button">Autre Onglet</button>
+        <button data-tab="article" class="tab-button active">Article</button>
+        <button data-tab="video" class="tab-button">Video</button>
     </div>
 
     <!-- Section Gestion -->
-    <div id="gestion" class="tab active">
+    <div id="article" class="tab active">
         <h1>Gestion des Articles</h1>
 
         <!-- Liste des articles -->
@@ -63,9 +64,24 @@
     </div>
 
     <!-- Section pour un autre onglet -->
-    <div id="other" class="tab">
-        <h1>Autre Onglet</h1>
-        <p>Contenu d'un autre onglet ici...</p>
+    <div id="video" class="tab">
+        <h1>Gestion des Vidéos</h1>
+
+        <h2>Liste des Vidéos</h2>
+        <ul id="video-list"></ul>
+
+        <h2>Ajouter une Vidéo</h2>
+        <form id="video-form">
+            <input type="url" id="video-url" placeholder="URL de la vidéo" required />
+            <input type="url" id="thumbnail-url" placeholder="URL de la vignette (facultatif)" />
+            <label>
+                <input type="checkbox" id="autoplay" checked /> Lecture automatique
+            </label>
+            <label>
+                <input type="checkbox" id="muted" checked /> Muet par défaut
+            </label>
+            <button type="submit">Ajouter la Vidéo</button>
+        </form>
     </div>
 </body>
 </html>
