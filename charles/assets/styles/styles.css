@@ -13,14 +13,14 @@ body {
 body {
     margin: 0;
     font-family: "inter", sans-serif;
-    background-color: #1c1c1c;
+    background-color: #333;
 }
 
 /* Header */
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espace entre les groupes */
+    justify-content: space-between; /* Espace entre logo et menu */
     padding: 1rem 2rem;
     background-color: #1c1c1c;
     color: #fff;
@@ -44,7 +44,6 @@ body {
     gap: 1.5rem;
     align-items: center;
     transition: all 0.3s ease-in-out;
-    margin-left: 50px;
 }
 
 .nav-item {
@@ -66,27 +65,21 @@ body {
 }
 
 /* CTA Button */
-.cta-container {
-    margin-left: auto; /* Pousse le bouton à l'extrême droite */
-}
-
 .cta-button {
-    color: #ffffff; /* Couleur du texte */
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    border: 2px solid #4CE0B3; /* Bordure blanche */
-
-
+    border: 2px solid #4CE0B3;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #00cc88; /* Couleur plus foncée au survol */
-    transform: scale(1.05); /* Mise en avant légère */
-    border-color: #00cc88; /* Change la couleur de la bordure */
+    background-color: #00cc88;
+    transform: scale(1.05);
+    border-color: #00cc88;
 }
 
 /* Menu Checkbox (Burger) */
@@ -113,31 +106,37 @@ body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* Header ajusté pour mobile */
+    /* Réorganisation pour mobile */
     .header {
-        flex-direction: column; /* Colonne pour mobile */
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
     }
 
+    .logo-container {
+        order: 1; /* Place le logo à gauche */
+    }
+
+    .menu-icon {
+        display: flex;
+        order: 2; /* Place le menu burger à droite */
+        margin-left: auto;
+    }
+
+    /* Navigation Links */
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 70px;
-        left: 0;
+        right: 0;
         width: 100%;
         background-color: #1c1c1c;
         padding: 1rem 0;
         z-index: 1000;
         text-align: center;
-        margin-left: 0px;
     }
 
-    .menu-icon {
-        display: flex;
-    }
-
-    /* Afficher les liens si la case est cochée */
+    /* Affiche les liens et le CTA quand le menu burger est activé */
     .menu-checkbox:checked ~ .nav-links {
         display: flex;
     }
@@ -147,18 +146,13 @@ body {
         text-align: center;
     }
 
-    /* CTA sur mobile */
-    .cta-container {
-        align-self: stretch; /* Occupe toute la largeur */
-        margin: 1rem 0 0;
-    }
-
+    /* CTA intégré au menu burger */
     .cta-button {
-        width: 100%; /* Bouton pleine largeur */
+        margin-top: 1rem;
+        width: 100%; /* Bouton en pleine largeur */
         text-align: center;
     }
 }
-
 /* Grid Layout */
 .grid-layout {
     display: grid;
@@ -169,7 +163,7 @@ body {
     margin-bottom: 20px; /* Marge en bas */
     margin-left: 20px; /* Marge à gauche */
     margin-right: 20px; /* Marge à droite */
-    background-color: #1c1c1c;
+    background-color: #333;
 }
 
 
@@ -178,7 +172,7 @@ body {
     grid-template-columns: repeat(4, 1fr); /* 12 colonnes égales */
     grid-template-rows: repeat(2, 185px); /* 2 rangées avec une hauteur de 150px */
     gap: 20px; /* Espacement entre colonnes et rangées */
-    background-color: #1c1c1c; /* Couleur des blocs */
+    background-color: #333; /* Couleur des blocs */
     margin-bottom: 20px;
 }
 
@@ -205,6 +199,8 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 1rem; /* Taille du texte */
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
+    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
 }
 
 /* Breakpoint for Mobile */
@@ -292,4 +288,292 @@ body {
     .footer-links {
         flex-direction: column;
     }
+}
+
+/* Global Styles */
+body {
+    font-family: "inter", sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+}
+
+.logo-container img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    color: #00ff99;
+}
+
+/* Main Article */
+
+
+.main-article{
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
+    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
+    border-radius: 16px;
+    padding: 0.5em 2em 0.5em 2em;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #4CE0B3;
+    text-transform: uppercase ;
+}
+
+.main-article .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-article-img {
+    width: 70%;
+    margin: 1rem auto; /* Centrage horizontal + marges verticales */
+    border-radius: 8px;
+    display: block; /* Nécessaire pour que margin:auto fonctionne avec les images */
+    margin: 1rem auto; /* Centrage horizontal + marges verticales */
+}
+
+.main-article .description {
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-size: 18;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 2;
+}
+
+.secondary-images img {
+    width: 48%;
+    margin: 1%;
+    border-radius: 8px;
+}
+
+.secondary-text {
+    line-height: 1.5;
+}
+
+/* Videos Section */
+.videos-section {
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
+    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
+    border-radius: 16px;
+    position: relative;
+}
+
+.videos-section h2 {
+    font-size: 1.5rem; /* Taille du texte global */
+    font-weight: 800;
+    font-style: italic;
+    color: #fff; /* Couleur blanche par défaut */
+    text-align: left; 
+}
+
+.title-section .highlight {
+    position: relative; /* Pour gérer le positionnement de l'élément par rapport au pseudo-élément */
+    z-index: 1; /* Le texte reste au-dessus du pseudo-élément */
+}
+
+.title-section .highlight::before {
+    content: ''; /* Génère le pseudo-élément */
+    position: absolute; /* Positionne le fond */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        to right,
+        
+        rgba(3, 255, 170, 1)0%,  /* Couleur verte avec 30% d'opacité au début */
+        rgba(3, 255, 170, 0.3) 100%   /* Couleur verte opaque à 100% */
+    );    z-index: -1; /* Place le fond derrière le texte */
+}
+
+.title-section .exclamation {
+    color: #00ff99; /* Couleur verte pour l'exclamation */
+}
+
+.videos-section::after {
+    content: ''; /* Génère une image en pseudo-élément */
+    position: absolute;
+    top: 10px; /* Distance depuis le haut */
+    right: 10px; /* Distance depuis la droite */
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    background-image: url('charles/assets/images/baguettes.png'); /* Chemin de l'image */
+    background-size: contain; /* Ajuste l'image à l'intérieur du cadre */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    z-index: 2; /* Place l'image au-dessus des autres éléments */
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.video-item {
+    background-color: #333;
+    height: 100%;
+    border-radius: 8px;
+    aspect-ratio: 190 / 162; /* Ratio de 16:9 */
+    
+}
+
+/* Article Croustillant */
+.croustillant-article {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
+    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
+    border-radius: 16px;
+}
+.croustillant-article h2{
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+.croustillant-article .highlight {
+    color: #00ff99;
+}
+
+.croustillant-content {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-direction: column;
+}
+
+.croustillant-text {
+    flex: 1;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #00ff99;
+}
+
+/* tag button */
+
+.tags-button{
+    font-weight: 800;
+    display: flex; 
+    gap: 20px;
+}
+
+.tags-button span{
+    border-radius: 4px;
+}
+
+.tag-pop {
+    background-color: #D9D9D9;
+    color: #805353;
+    padding: 4px;
+}
+
+.tag-music {
+    background-color: #D9D9D9;
+    color: #7F32B6;
+    padding: 4px;
+}
+
+/* Footer */
+.footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #333;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #00ff99;
+}
+.bar-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    color: #fff; /* Couleur du texte */
+    background-color: #1c1c1c; /* Couleur de fond */
+    padding-left: 1rem; /* Espace entre la barre et le texte */
+    border-left: 4px solid #00ff99; /* Barre verticale */
+    height: 50px; /* Hauteur (optionnelle) */
+}
+
+
+.article-main {
+    margin: 30px;
+}
+
+.three-column-layout {
+    display: grid; /* Active CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
+    gap: 20px; /* Espacement entre colonnes */
+    width: 100%; /* Prend toute la largeur */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+/* Styling for each column */
+.column {
+    background-color: #333; /* Couleur de fond de chaque colonne */
+     /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Coupe le contenu qui dépasse */
+}
+
+@media (max-width: 768px) {
+    .three-column-layout {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    }
+}
+
+.video-column{
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    position: relative;
+
+        grid-row: 1 / -1; /* Étend la div sur toutes les lignes disponibles */
+        grid-column: span 1; /* Occupe une colonne entière */
+        height: 100%; /* Remplit toute la hauteur */
+
 }
