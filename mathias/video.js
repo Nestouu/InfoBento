@@ -37,18 +37,40 @@ async function fetchAndDisplayVideos() {
         videoList.innerHTML = '';
 
         // Créer dynamiquement les éléments iframe pour chaque vidéo
-        videos.forEach((video) => {
+        videos.forEach(video => {
+            // Créer un conteneur pour la vidéo et le bouton
+            const videoContainer = document.createElement('div');
+            videoContainer.style.marginBottom = '20px';
+
+            // Créer l'élément iframe pour la vidéo
             const iframeElement = document.createElement('iframe');
-            iframeElement.src = video.video_url; // Ajouter l'URL de la vidéo
-            iframeElement.width = '560'; // Largeur de la vidéo
-            iframeElement.height = '315'; // Hauteur de la vidéo
-            iframeElement.frameBorder = '0'; // Supprimer la bordure
+            iframeElement.src = `${video.video_url}?autoplay=1&mute=1`;
+            iframeElement.width = '560';
+            iframeElement.height = '315';
+            iframeElement.frameBorder = '0';
             iframeElement.allow =
                 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframeElement.allowFullscreen = true; // Autoriser le mode plein écran
+            iframeElement.allowFullscreen = true;
 
-            // Ajouter l'iframe au conteneur
-            videoList.appendChild(iframeElement);
+            // Créer le bouton "Supprimer"
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Supprimer';
+            deleteButton.style.marginTop = '10px';
+            deleteButton.dataset.id = video.id; // Associer l'ID de la vidéo au bouton
+
+            // Ajouter un gestionnaire d'événement pour la suppression
+            deleteButton.addEventListener('click', async () => {
+                if (confirm('Êtes-vous sûr de vouloir supprimer cette vidéo ?')) {
+                    await deleteVideo(video.id);
+                }
+            });
+
+            // Ajouter l'iframe et le bouton au conteneur
+            videoContainer.appendChild(iframeElement);
+            videoContainer.appendChild(deleteButton);
+
+            // Ajouter le conteneur à la liste
+            videoList.appendChild(videoContainer);
         });
     } catch (err) {
         console.error('Erreur inattendue lors de la récupération des vidéos :', err);
@@ -61,36 +83,54 @@ async function fetchVideos() {
     try {
         // Récupérer les vidéos depuis la table "featured_video"
         const { data: videos, error } = await supabaseClient
-            .from('featured_video') // Nom correct de la table
-            .select('video_url');
+            .from('featured_video')
+            .select('id, video_url');
 
         if (error) {
             console.error('Erreur lors de la récupération des vidéos :', error.message);
             return;
         }
 
-        // Sélectionnez l'élément HTML où afficher les vidéos
         const videoList = document.getElementById('video-list');
         if (!videoList) {
             console.error("L'élément avec l'id 'video-list' est introuvable.");
             return;
         }
-        videoList.innerHTML = ''; // Nettoyer la liste avant de l'actualiser
 
-        // Ajouter chaque vidéo à la liste sous forme de balises iframe
+        videoList.innerHTML = ''; // Nettoyer la liste avant d'ajouter les vidéos
+
+        // Ajouter chaque vidéo avec un bouton "Supprimer"
         videos.forEach(video => {
+            const videoContainer = document.createElement('div');
+            videoContainer.style.marginBottom = '20px';
+
             const iframeElement = document.createElement('iframe');
-            iframeElement.src = video.video_url; // URL de la vidéo
-            iframeElement.width = '560'; // Largeur de la vidéo
-            iframeElement.height = '315'; // Hauteur de la vidéo
-            iframeElement.frameBorder = '0'; // Pas de bordure
+            iframeElement.src = `${video.video_url}?autoplay=1&mute=1`;
+            iframeElement.width = '560';
+            iframeElement.height = '315';
+            iframeElement.frameBorder = '0';
             iframeElement.allow =
                 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframeElement.allowFullscreen = true; // Autoriser le plein écran
+            iframeElement.allowFullscreen = true;
 
-            // Ajouter l'iframe au conteneur de la liste des vidéos
-            videoList.appendChild(iframeElement);
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Supprimer';
+            deleteButton.style.marginTop = '10px';
+            deleteButton.dataset.id = video.id; // Associer l'ID de la vidéo au bouton
+
+            deleteButton.addEventListener('click', async () => {
+                if (confirm('Êtes-vous sûr de vouloir supprimer cette vidéo ?')) {
+                    await deleteVideo(video.id);
+                }
+            });
+
+            videoContainer.appendChild(iframeElement);
+            videoContainer.appendChild(deleteButton);
+
+            videoList.appendChild(videoContainer);
         });
+
+        console.log('Vidéos affichées avec IDs :', videos);
     } catch (err) {
         console.error('Erreur inattendue lors de la récupération des vidéos :', err);
     }
@@ -118,8 +158,14 @@ async function insertVideo(videoUrl, thumbnailUrl, autoplay, muted) {
 
 // Fonction pour supprimer une vidéo
 async function deleteVideo(id) {
+    if (!id) {
+        console.error('Erreur : ID de la vidéo non défini.');
+        alert('Erreur : Impossible de supprimer cette vidéo.');
+        return;
+    }
+
     try {
-        const { data, error } = await supabaseClient
+        const { error } = await supabaseClient
             .from('featured_video')
             .delete()
             .eq('id', id);
@@ -129,10 +175,10 @@ async function deleteVideo(id) {
             alert('Une erreur est survenue lors de la suppression de la vidéo.');
         } else {
             alert('Vidéo supprimée avec succès !');
-            fetchVideos(); // Rafraîchir la liste après la suppression
+            fetchVideos(); // Rafraîchir la liste après suppression
         }
     } catch (err) {
-        console.error('Erreur inattendue :', err);
+        console.error('Erreur inattendue lors de la suppression de la vidéo :', err);
         alert('Une erreur inattendue est survenue.');
     }
 }
