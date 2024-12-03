@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Bento Login</title>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Titre principal -->
+        <header class="main-header">
+            <h1>QUEL <span class="highlight">BENTO</span> POUR DÉGUSTER TES INFOS <span class="emoji">?</span></h1>
+            <p>Découvre le média fait pour toi, par toi. Tu choisis le type d’infos qui t’intéresse et on s’occupe du reste. On te prépare un bento d’infos : bien rangé, bien trié, tu ne te perdras jamais. T’as plus qu’à déguster.</p>
+        </header>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Colonne gauche -->
+            <div class="left-column">
+                <div class="card">
+                    <img src="./assets/images/sushi.png" alt="Compose Bento Icon">
+                    <h2>JE COMPOSE MON BENTO</h2>
+                    <p>Crée toi un compte pour choisir la DA de tes infos. Une dégustation garantie 100% personnalisée.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./assets/images/chef.png" alt="Chef Bento Icon">
+                    <h2>LE BENTO DU CHEF</h2>
+                    <p>Des infos du jour bien mijotées par nos maîtres du Bento. Pas besoin de se connecter, on paye notre tournée.</p>
+                </div>
+            </div>
+
+            <!-- Colonne droite -->
+            <div class="right-column">
+                <div class="card login-card">
+                    <img src="./assets/images/piment.png" style="position:absolute;">
+                    <img src="./assets/images/pasta-box.png" alt="Pasta box Icon">
+                    <h2>JE RÉCHAUFFE MON BENTO</h2>
+                    <p>Connecte-toi pour retrouver ton bento à toi.</p>
+                    <form>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Email" required>
+                        
+                        <label for="password">Mot de passe</label>
+                        <div class="password-container">
+                            <input type="password" id="password" placeholder="Mot de passe" required>
+                            <button type="button" class="show-password">👁️</button>
+                        </div>
+
+                        <button type="submit" class="login-button">Connexion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
