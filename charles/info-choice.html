@@ -8,6 +8,15 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/styles.css">
+    <script src="../mathias/script/tabs.js"></script>
+    <style>
+        .article-section {
+            display: none;
+        }
+        .article-section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -20,38 +29,50 @@
         <div class="main-layout">
             <!-- Section des options -->
             <div class="option-section">
-                <button class="option-card-choice" data-article="article-1">
+                <button class="option-card-choice" data-article="salty">
                     <img src="./assets/images/sale.png" alt="Burger Icon">
                     <h3>Salé</h3>
                     <p>Une actu bien salée, aïe les problèmes ! #picklesdedrama</p>
                 </button>
-                <button class="option-card-choice" data-article="article-2">
+                <button class="option-card-choice" data-article="sweet">
                     <img src="./assets/images/sucre.png" alt="Donut Icon">
                     <h3>Sucré</h3>
                     <p>Une actu bien sweaty comme un donut au chocolat ! #bodypositive</p>
                 </button>
-                <button class="option-card-choice" data-article="article-3">
+                <button class="option-card-choice" data-article="energetic">
                     <img src="./assets/images/energisante.png" alt="Bolt Icon">
                     <h3>Énergisante</h3>
                     <p>Une actu qui te percute en mode sportif ! #marquerlhistoire</p>
                 </button>
-                <button class="option-card-choice" data-article="article-4">
+                <button class="option-card-choice" data-article="potion">
                     <img src="./assets/images/minipotion.png" alt="Potion Icon">
                     <h3>Mini Potion</h3>
                     <p>Une actu premier de la classe pour flex auprès de tes collègues ! #premieraukahoot</p>
                 </button>
             </div>
 
-            <!-- Section de l'article dynamique -->
-            <div class="article-section" id="article-container">
+            <!-- Sections des articles (changent dynamiquement) -->
+            <div id="salty" class="article-section active">
                 <h2>Ramen Tes News 🍜</h2>
-                <h3 id="article-title">Titre de l'article</h3>
-                <p id="article-description">Description de l'article</p>
+                <h3>Titre Salé</h3>
+                <p>Description salée de l'article.</p>
+            </div>
+            <div id="sweet" class="article-section">
+                <h2>Ramen Tes News 🍜</h2>
+                <h3>Titre Sucré</h3>
+                <p>Description sucrée de l'article.</p>
+            </div>
+            <div id="energetic" class="article-section">
+                <h2>Ramen Tes News 🍜</h2>
+                <h3>Titre Énergisant</h3>
+                <p>Description énergisante de l'article.</p>
+            </div>
+            <div id="potion" class="article-section">
+                <h2>Ramen Tes News 🍜</h2>
+                <h3>Titre Mini Potion</h3>
+                <p>Description mini-potion de l'article.</p>
             </div>
         </div>
     </div>
-
-    <!-- Importation du JavaScript -->
-    <script src="./assets/scripts/script.js"></script>
 </body>
 </html>
