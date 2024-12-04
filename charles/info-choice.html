@@ -8,7 +8,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../mathias/script/tabs2.js"></script>
     <script src="../mathias/script/tabs.js"></script>
+
     <style>
         .article-section {
             display: none;
@@ -54,23 +57,24 @@
             <!-- Sections des articles (changent dynamiquement) -->
             <div id="salty" class="article-section active">
                 <h2>Ramen Tes News 🍜</h2>
-                <h3>Titre Salé</h3>
-                <p>Description salée de l'article.</p>
+                <h3 id="salty-title">Titre Salé</h3>
+                <p id="salty-description">Description salée de l'article.</p>
+            </div>
             </div>
             <div id="sweet" class="article-section">
                 <h2>Ramen Tes News 🍜</h2>
-                <h3>Titre Sucré</h3>
-                <p>Description sucrée de l'article.</p>
+                <h3 id="sweet-title">Titre Sucré</h3>
+                <p id="sweet-description">Description sucrée de l'article.</p>
             </div>
             <div id="energetic" class="article-section">
                 <h2>Ramen Tes News 🍜</h2>
-                <h3>Titre Énergisant</h3>
-                <p>Description énergisante de l'article.</p>
+                <h3 id="energetic-title">Titre Énergisant</h3>
+                <p id="energetic-description">Description énergisante de l'article.</p>
             </div>
             <div id="potion" class="article-section">
                 <h2>Ramen Tes News 🍜</h2>
-                <h3>Titre Mini Potion</h3>
-                <p>Description mini-potion de l'article.</p>
+                <h3 id="potion-title">Titre Mini Potion</h3>
+                <p id="potion-description">Description mini-potion de l'article.</p>
             </div>
         </div>
     </div>
