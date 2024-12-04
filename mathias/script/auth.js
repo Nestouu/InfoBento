@@ -9,15 +9,17 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 console.log('Supabase Client initialisé:', supabaseClient);
 
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('login-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const errorMessage = document.getElementById('error-message');
+    const errorMessage = document.createElement('p'); // Message d'erreur dynamique
 
     // Réinitialiser les messages d'erreur
-    errorMessage.style.display = 'none';
+    const existingError = document.querySelector('.error-message');
+    if (existingError) existingError.remove(); // Supprimer les anciens messages d'erreur
 
     try {
         // Étape 1 : Tentative de connexion
@@ -27,8 +29,9 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         });
 
         if (loginError) {
-            errorMessage.style.display = 'block';
             errorMessage.textContent = 'Erreur : ' + loginError.message;
+            errorMessage.className = 'error-message';
+            document.querySelector('.login-card').appendChild(errorMessage); // Ajoute l'erreur à la carte
             return;
         }
 
@@ -39,8 +42,9 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             .eq('user_id', session.user.id);
 
         if (roleError || !userRoles || userRoles.length === 0) {
-            errorMessage.style.display = 'block';
             errorMessage.textContent = 'Erreur : Impossible de vérifier votre rôle.';
+            errorMessage.className = 'error-message';
+            document.querySelector('.login-card').appendChild(errorMessage); // Ajoute l'erreur à la carte
             return;
         }
 
@@ -50,18 +54,21 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
         if (isAdmin) {
             // Redirection vers la page admin
-            window.location.href = 'admin.html';
+            window.location.href = '../mathias/admin.html';
         } else if (isUser) {
             // Redirection vers la page utilisateur
-            window.location.href = 'userPage.html';
+            window.location.href = 'article.html';
         } else {
             // Cas où l'utilisateur n'a aucun rôle valide
-            errorMessage.style.display = 'block';
             errorMessage.textContent = 'Erreur : Accès refusé. Rôle inconnu.';
+            errorMessage.className = 'error-message';
+            document.querySelector('.login-card').appendChild(errorMessage); // Ajoute l'erreur à la carte
         }
     } catch (err) {
         console.error('Erreur inattendue :', err);
-        errorMessage.style.display = 'block';
         errorMessage.textContent = 'Une erreur inattendue est survenue.';
+        errorMessage.className = 'error-message';
+        document.querySelector('.login-card').appendChild(errorMessage); // Ajoute l'erreur à la carte
     }
+    });
 });
