@@ -340,8 +340,10 @@ body {
 
 h1 {
     font-size: 2rem;
-    color: #4CE0B3;
+    color: #ffffff;
     text-transform: uppercase ;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
 .main-article .subtitle {
@@ -594,11 +596,10 @@ h1 {
 }
 
 .main-header h1 {
-    font-size: 2.5rem;
+    
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    font-weight: 700;
 }
 
 .main-header .highlight {
@@ -922,18 +923,20 @@ a {
 }
 
 .option-card-choice {
-    background-color: #2a2a2a;
+    background-color: #1D1D1D;
     padding: 20px;
     border-radius: 10px;
     text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid #00cc88; /* Ajout de la bordure */
 }
 
 .option-card-choice:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #4CE0B3; /* Changement de couleur au survol */
 }
 
 .option-card-choice img {
@@ -1002,5 +1005,9 @@ a {
     .article-section {
         margin-top: 20px;
     }
+}
+
+.header-choice .highlight{
+    color:#00cc88;
 }
 
