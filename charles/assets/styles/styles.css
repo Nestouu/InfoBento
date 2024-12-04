@@ -751,3 +751,34 @@ h1 {
         margin-bottom: 2rem;
     }
 }
+
+/* Assurez-vous que la div parent utilise position relative */
+.card {
+    position: relative;
+    background-color: #1D1D1D;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+
+    .main-header p {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .left-column {
+        margin-left: 0em;
+    }
+
+    .container {
+
+        padding: 1rem;
+    }
+
+    .right-column {
+        margin-right: 0em;
+    }
+}
