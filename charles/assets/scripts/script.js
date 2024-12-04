@@ -32,7 +32,7 @@ const articles = {
     }
 };
 
-// Gestion des clics
+// Ajout d'interactions
 document.querySelectorAll('.option-card').forEach(card => {
     card.addEventListener('click', () => {
         const articleKey = card.dataset.article;
@@ -42,8 +42,14 @@ document.querySelectorAll('.option-card').forEach(card => {
         document.getElementById('article-title').textContent = article.title;
         document.getElementById('article-description').textContent = article.description;
 
-        // Ajoute une classe active
+        // Gestion des classes actives
         document.querySelectorAll('.option-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
+    });
+});
+
+document.querySelectorAll('.toggle-button').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.toggle('active');
     });
 });
