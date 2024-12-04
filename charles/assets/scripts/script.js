@@ -53,3 +53,12 @@ document.querySelectorAll('.toggle-button').forEach(button => {
         button.classList.toggle('active');
     });
 });
+
+document.querySelector('.password-toggle').addEventListener('click', () => {
+    const passwordInput = document.getElementById('password');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+    } else {
+        passwordInput.type = 'password';
+    }
+});

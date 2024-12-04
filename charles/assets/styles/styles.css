@@ -293,7 +293,7 @@ body {
 /* Global Styles */
 body {
     font-family: "inter", sans-serif;
-    background-color: #333;
+    background-color: #262626;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -1011,3 +1011,172 @@ a {
     color:#00cc88;
 }
 
+
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+.left-column{
+    margin-left: 5em;
+}
+
+.right-column{
+    margin-right: 5em;
+}
+
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
+    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
+    margin:20px;
+    
+}
+
+.card img {
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #bdbdbd;
+}
+
+/* Login Card (Right Column) */
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.login-card form label {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    padding-top: 20px;
+}
+
+.login-card form input {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #4CE0B3;
+    background-color: #1c1c1c;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+}
+
+.password-container .show-password {
+    background: none;
+    border: none;
+    color: #4CE0B3;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.login-card .login-button {
+    background-color: #007AFF;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-card .login-button:hover {
+    background-color: #004792;
+}
+
+.google-login {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.google-button {
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.google-button:hover {
+    background-color: #444;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .card {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Assurez-vous que la div parent utilise position relative */
+.card {
+    position: relative;
+    background-color: #1D1D1D;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 768px) {
+
+    .main-header p {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .left-column {
+        margin-left: 0em;
+    }
+
+    .container {
+
+        padding: 1rem;
+    }
+
+    .right-column {
+        margin-right: 0em;
+    }
+}
+
+.bento-section{
+    max-width: 50%;
+}
