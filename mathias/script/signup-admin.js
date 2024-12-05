@@ -1,3 +1,5 @@
+//import { supabaseClient } from './supabaseClient.js';
+
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://lxvfirrxgdinwlwoxgpc.supabase.co';
@@ -7,19 +9,15 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 console.log('Supabase Client initialisé:', supabaseClient);
 
-
-document.getElementById('login-form').addEventListener('submit', async (event) => {
+document.getElementById('signup-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const prenom = document.getElementById('prenom').value;
     const nom = document.getElementById('nom').value;
-
-    const errorMessage = document.getElementById('error-message') || document.createElement('p');
-    errorMessage.style.color = 'red';
-    const successMessage = document.getElementById('success-message') || document.createElement('p');
-    successMessage.style.color = 'green';
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
 
     // Réinitialiser les messages
     errorMessage.style.display = 'none';
@@ -32,8 +30,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             password,
             options: {
                 data: {
-                    prenom,
-                    nom,
+                    role: 'user', // Attribuer le rôle 'user'
                 },
             },
         });
@@ -44,7 +41,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             return;
         }
 
-        // Étape 2 : Ajouter les informations supplémentaires à la table 'user_roles'
+        // Étape 2 : Ajouter l'utilisateur dans la table 'user_roles'
         if (data.user) {
             const { error: roleError } = await supabaseClient
                 .from('user_roles')
@@ -52,7 +49,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
                     user_id: data.user.id, 
                     role: 'user',
                     prenom: prenom,
-                    nom: nom,
+                    nom: nom
                 }]);
 
             if (roleError) {
@@ -61,12 +58,10 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
                 return;
             }
 
-            // Étape 3 : Redirection après une inscription réussie
+            // Afficher un message de succès et rediriger l'utilisateur
             successMessage.style.display = 'block';
-            successMessage.textContent = 'Inscription réussie ! Redirection...';
-            setTimeout(() => {
-                window.location.href = 'info-choice.html';
-            }, 1500); // Redirection après 1.5 secondes
+            successMessage.textContent = 'Inscription réussie et rôle attribué ! Veuillez vérifier votre e-mail.';
+            window.location.href = 'userPage.html';
         }
     } catch (err) {
         console.error('Erreur inattendue :', err);
