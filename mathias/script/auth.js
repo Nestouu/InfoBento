@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = '../mathias/admin.html';
             } else if (isUser) {
                 // Redirection vers la page utilisateur
-                window.location.href = 'article.html';
+                window.location.href = 'bentochef.html';
             } else {
                 errorMessage.textContent = 'Erreur : Accès refusé. Rôle inconnu.';
                 loginCard.appendChild(errorMessage); // Ajouter le message d'erreur à la carte

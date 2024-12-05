@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const optionButtons = document.querySelectorAll(".option-card-choice");
 
     optionButtons.forEach((button) => {
-        button.addEventListener("click", async (event) => {
+        button.addEventListener("click", async () => {
             const targetSectionId = button.getAttribute("data-article");
 
             // Désactiver toutes les sections
@@ -47,29 +47,43 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Gestion du clic sur le bouton "Continuer"
     continueButton.addEventListener("click", () => {
-        window.location.href = "new-account.html"; // Redirection vers la page new-account.html
+        window.location.href = "bentochef.html"; // Redirection vers la page new-account.html
     });
 
-    // Fonction pour mettre à jour une section
-    const updateSection = async ({ id, sectionId, titleId, descriptionId, imageId }) => {
-        const titleElement = document.getElementById(titleId);
-        const descriptionElement = document.getElementById(descriptionId);
-        const imageElement = document.getElementById(imageId);
+    try {
+        // Récupérer tous les articles en une seule requête
+        const { data: articles, error } = await supabaseClient
+            .from("article")
+            .select("id, title, content, image_url")
+            .in("id", [18, 19, 20, 21]); // Récupère les articles avec les IDs spécifiés
 
-        if (!titleElement || !descriptionElement || !imageElement) {
-            console.error(`Les éléments HTML pour la section ${sectionId} ne sont pas trouvés.`);
+        if (error) {
+            console.error("Erreur lors de la récupération des articles :", error.message);
             return;
         }
 
-        try {
-            const { data: article, error } = await supabaseClient
-                .from("article")
-                .select("title, content, image_url")
-                .eq("id", id)
-                .single();
+        if (!articles || articles.length === 0) {
+            console.warn("Aucun article trouvé pour les IDs fournis.");
+            return;
+        }
 
-            if (error) {
-                console.error(`Erreur lors de la récupération de l'article pour la section ${sectionId} :`, error.message);
+        console.log("Articles récupérés :", articles);
+
+        // Associer les données récupérées aux sections correspondantes
+        sectionsMapping.forEach(({ id, sectionId, titleId, descriptionId, imageId }) => {
+            const article = articles.find((article) => article.id === id); // Trouver l'article correspondant
+
+            if (!article) {
+                console.warn(`Aucun article trouvé pour la section ${sectionId} avec l'ID ${id}`);
+                return;
+            }
+
+            const titleElement = document.getElementById(titleId);
+            const descriptionElement = document.getElementById(descriptionId);
+            const imageElement = document.getElementById(imageId);
+
+            if (!titleElement || !descriptionElement || !imageElement) {
+                console.error(`Les éléments HTML pour la section ${sectionId} ne sont pas trouvés.`);
                 return;
             }
 
@@ -78,13 +92,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             descriptionElement.textContent = article.content || "Description non disponible";
             imageElement.src = article.image_url || ""; // Met à jour l'URL de l'image
             imageElement.alt = article.title || "Image non disponible";
-        } catch (err) {
-            console.error(`Erreur inattendue lors de la récupération de l'article pour la section ${sectionId} :`, err);
-        }
-    };
-
-    // Charger les données pour chaque section
-    for (const section of sectionsMapping) {
-        await updateSection(section);
+        });
+    } catch (err) {
+        console.error("Erreur inattendue lors de la récupération des articles :", err);
     }
 });
