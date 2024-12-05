@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         { id: 21, sectionId: "potion", titleId: "potion-title", descriptionId: "potion-description", imageId: "potion-image" },
     ];
 
-    const continueButton = document.getElementById("continue-button");
+    const continueButton = document.getElementById("continue-button-2");
 
     if (!continueButton) {
         console.error("Le bouton 'Continuer' est introuvable.");

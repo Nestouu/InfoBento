@@ -13,6 +13,11 @@ body {
     min-height: 100vh;
 }
 
+h1 {
+    text-transform :uppercase;
+        letter-spacing: -0.05em;
+}
+
 h1, h2, h3 {
     font-weight: 600;
 }
@@ -30,7 +35,7 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px 40px 20px 40px;
 }
 
 /* === Header Styles === */
@@ -568,7 +573,10 @@ a {
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid #00cc88;
+}
+
+.option-card-choice h2{
+    color: white;
 }
 
 .option-card:hover,
@@ -618,9 +626,16 @@ a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.article-section.active {
+    display: block;
+    max-width: 35%;
+    margin-left: 50px;
+}
+
 .article-section h2 {
     font-size: 1.5rem;
     color: #4CE0B3;
+    text-transform: uppercase;
 }
 
 .article-section h3 {
@@ -634,6 +649,10 @@ a {
     color: #bdbdbd;
 }
 
+.article-section.active img{
+    max-height: 320px !important;
+}
+
 @media (max-width: 768px) {
     .main-layout {
         grid-template-columns: 1fr;
@@ -641,6 +660,14 @@ a {
 
     .article-section {
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-section.active {
+        display: block;
+        max-width: none;
+        margin-left: 0px;
     }
 }
 
@@ -672,13 +699,31 @@ a {
     font-weight: bold;
     font-size: 1.1em;
     color: #1D1D1D;
-    border-radius: 8px;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 .continue-button:hover {
     background-color: #262626;
     color: #4CE0B3;
 }
+
+#continue-button-2 {
+    background-color: #4CE0B3;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #1D1D1D;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+#continue-button-2:hover {
+    background-color: #262626;
+    color: #4CE0B3;
+}
+
 
 /* --- Form Grid --- */
 .form-grid {
@@ -863,7 +908,7 @@ a {
 
 
 .bento-section-logo {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     display: block;  /* Transforme l'image en élément de type bloc */
     margin: 0 auto;  /* Centre l'image horizontalement */
@@ -907,3 +952,13 @@ a {
         order: 1;
     }
 }
+
+.highlight {
+    color: #4CE0B3;
+    text-transform: uppercase;
+}
+
+.article-main{
+    padding: 20px;
+}
+
