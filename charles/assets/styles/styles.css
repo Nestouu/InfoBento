@@ -1,43 +1,58 @@
-/* styles.css */
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* === Global Styles === */
 body {
-    
     margin: 0;
-    font-family: "inter", sans-serif;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #262626;
+    color: #fff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-
-/* Base Styles */
-body {
-    margin: 0;
-    font-family: "inter", sans-serif;
+h1, h2, h3 {
+    font-weight: 600;
 }
 
-/* Header */
+p {
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* === Header Styles === */
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Espace entre les groupes */
     padding: 1rem 2rem;
     background-color: #1c1c1c;
     color: #fff;
     position: relative;
 }
 
-/* Logo */
 .logo-container {
     display: flex;
     align-items: center;
 }
 
-.logo {
+.logo-container img {
     height: 40px;
-    width: auto;
 }
 
-/* Navigation Links */
 .nav-links {
     display: flex;
     gap: 1.5rem;
@@ -54,22 +69,18 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-item:hover {
-    color: #00ff99;
-}
-
+.nav-item:hover,
 .nav-item.special {
     color: #00ff99;
 }
 
-/* CTA Button */
 .cta-container {
-    margin-left: auto; /* Pousse le bouton à l'extrême droite */
+    margin-left: auto;
 }
 
 .cta-button {
-    background-color: #00ff99; /* Couleur de fond */
-    color: #000; /* Couleur du texte */
+    background-color: #00ff99;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
@@ -79,11 +90,10 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #00cc88; /* Couleur plus foncée au survol */
-    transform: scale(1.05); /* Légère mise en avant */
+    background-color: #00cc88;
+    transform: scale(1.05);
 }
 
-/* Menu Checkbox (Burger) */
 .menu-checkbox {
     display: none;
 }
@@ -105,11 +115,10 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Responsive Styles */
+/* === Responsive Header Styles === */
 @media (max-width: 768px) {
-    /* Header ajusté pour mobile */
     .header {
-        flex-direction: column; /* Colonne pour mobile */
+        flex-direction: column;
         align-items: flex-start;
     }
 
@@ -124,14 +133,13 @@ body {
         padding: 1rem 0;
         z-index: 1000;
         text-align: center;
-        margin-left: 0px;
+        margin-left: 0;
     }
 
     .menu-icon {
         display: flex;
     }
 
-    /* Afficher les liens si la case est cochée */
     .menu-checkbox:checked ~ .nav-links {
         display: flex;
     }
@@ -141,17 +149,590 @@ body {
         text-align: center;
     }
 
-    /* CTA sur mobile */
     .cta-container {
-        align-self: stretch; /* Occupe toute la largeur */
+        align-self: stretch;
         margin: 1rem 0 0;
     }
 
     .cta-button {
-        width: 100%; /* Bouton pleine largeur */
+        width: 100%;
         text-align: center;
     }
 }
+
+/* === Main Content Styles === */
+
+/* --- Main Article --- */
+.main-article {
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45),
+                inset 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 0.5em 2em;
+}
+
+.main-article h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.main-article .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-article-img {
+    width: 70%;
+    margin: 1rem auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.main-article .description {
+    line-height: 2;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.secondary-images img {
+    width: 48%;
+    margin: 1%;
+    border-radius: 8px;
+}
+
+.secondary-text {
+    line-height: 1.5;
+}
+
+/* --- Videos Section --- */
+.videos-section {
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45),
+                inset 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    position: relative;
+}
+
+.videos-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+    color: #fff;
+    text-align: left;
+}
+
+.title-section .highlight {
+    position: relative;
+    z-index: 1;
+}
+
+.title-section .highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        to right,
+        rgba(3, 255, 170, 1) 0%,
+        rgba(3, 255, 170, 0.3) 100%
+    );
+    z-index: -1;
+}
+
+.title-section .exclamation {
+    color: #00ff99;
+}
+
+.videos-section::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-image: url('charles/assets/images/baguettes.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.video-item {
+    background-color: #333;
+    height: 100%;
+    border-radius: 8px;
+    aspect-ratio: 190 / 162;
+}
+
+/* --- Article Croustillant --- */
+.croustillant-article {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #1D1D1D;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45),
+                inset 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.croustillant-article h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.croustillant-article .highlight {
+    color: #00ff99;
+}
+
+.croustillant-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.croustillant-text {
+    flex: 1;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #00ff99;
+}
+
+/* --- Tag Buttons --- */
+.tags-button {
+    display: flex;
+    gap: 20px;
+    font-weight: 800;
+}
+
+.tags-button span {
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.tag-pop {
+    background-color: #D9D9D9;
+    color: #805353;
+}
+
+.tag-music {
+    background-color: #D9D9D9;
+    color: #7F32B6;
+}
+
+/* === Footer Styles === */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: #C6C6C6;
+    text-align: center;
+    gap: 1rem;
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-item,
+.footer-links a {
+    text-decoration: none;
+    color: #C6C6C6;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-item:hover,
+.footer-links a:hover {
+    color: #00ff99;
+}
+
+.footer-right {
+    display: flex;
+    gap: 1.25rem;
+}
+
+/* === Card and Login Styles === */
+
+/* --- Card --- */
+.card {
+    position: relative;
+    background-color: #1D1D1D;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    font-family: "Inter", sans-serif !important;
+}
+
+.card img {
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #bdbdbd;
+}
+
+.left-column .card {
+    text-align: left;
+}
+
+/* --- Login Card --- */
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.login-card form label {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    padding-top: 20px;
+}
+
+.login-card form input {
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #4CE0B3;
+    background-color: #1c1c1c;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+}
+
+.password-container .show-password {
+    background: none;
+    border: none;
+    color: #4CE0B3;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.login-button {
+    background-color: #007AFF;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #004792;
+}
+
+.google-login {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.google-button {
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.google-button:hover {
+    background-color: #444;
+}
+
+/* === Layout Styles === */
+
+/* --- Main Content Layout --- */
+.main-content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 40px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+.left-column {
+    margin-left: 5em;
+}
+
+.right-column {
+    margin-right: 5em;
+}
+
+/* --- Responsive Styles for Main Content --- */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        margin: 0;
+    }
+}
+
+/* --- Main Header --- */
+.main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-header h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.main-header .highlight {
+    color: #4CE0B3;
+}
+
+.main-header p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #bdbdbd;
+    padding: 0 150px;
+}
+
+@media (max-width: 768px) {
+    .main-header p {
+        padding: 0 10px;
+    }
+}
+
+/* --- Option Section --- */
+.option-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.option-card,
+.option-card-choice {
+    background-color: #1D1D1D;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid #00cc88;
+}
+
+.option-card:hover,
+.option-card-choice:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #4CE0B3;
+}
+
+.option-card img,
+.option-card-choice img {
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.8em;
+}
+
+.option-card h3,
+.option-card-choice h3 {
+    font-size: 1.2rem;
+    color: #E2DDD6;
+}
+
+.option-card p,
+.option-card-choice p {
+    font-size: 0.9rem;
+    color: #E2DDD6;
+}
+
+@media (max-width: 768px) {
+    .option-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Main Layout --- */
+.main-layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.article-section {
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.article-section h2 {
+    font-size: 1.5rem;
+    color: #4CE0B3;
+}
+
+.article-section h3 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.article-section p {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #bdbdbd;
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .article-section {
+        margin-top: 20px;
+    }
+}
+
+/* === Navigation and Form Styles === */
+
+/* --- Navigation Buttons --- */
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.back-button {
+    background-color: #262626;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #475569;
+}
+
+.back-button:hover {
+    color: #4CE0B3;
+}
+
+.continue-button {
+    background-color: #4CE0B3;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #1D1D1D;
+    border-radius: 8px;
+}
+
+.continue-button:hover {
+    background-color: #262626;
+    color: #4CE0B3;
+}
+
+/* --- Form Grid --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+}
+
+.password-container button {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.login-button {
+    grid-column: span 2;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-button {
+        grid-column: span 1;
+    }
+}
+
 
 /* Grid Layout */
 .grid-layout {
@@ -240,1007 +821,89 @@ body {
     }
 }
 
-/* Footer */
-.footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: #1c1c1c;
-    color: #C6C6C6;
-    position: relative;
-}
-
-.footer-left {
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.footer-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-item {
-    text-decoration: none;
-    color: #C6C6C6;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.footer-item:hover {
-    color: #00ff99;
-}
-
-.footer-right {
-    display: flex; /* Aligner les span en ligne */
-    gap: 1.25rem; /* 20px (converti en rem) */
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        flex-direction: column;
-    }
-}
-
-/* Global Styles */
-body {
-    font-family: "inter", sans-serif;
-    background-color: #262626;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-}
-
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #333;
-}
-
-.logo-container img {
-    height: 40px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-item {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-.nav-item:hover {
-    color: #00ff99;
-}
-
-/* Main Article */
-
-
-.main-article{
-    background-color: #1D1D1D;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
-    border-radius: 16px;
-    padding: 0.5em 2em 0.5em 2em;
-}
-
-h1 {
-    font-size: 2rem;
-    color: #ffffff;
-    text-transform: uppercase ;
-    font-weight: 700;
-    font-size: 2.5rem;
-}
-
-.main-article .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.main-article-img {
-    width: 70%;
-    margin: 1rem auto; /* Centrage horizontal + marges verticales */
-    border-radius: 8px;
-    display: block; /* Nécessaire pour que margin:auto fonctionne avec les images */
-    margin: 1rem auto; /* Centrage horizontal + marges verticales */
-}
-
-.main-article .description {
-    line-height: 1.5;
-    margin-bottom: 2rem;
-    font-size: 18;
-    font-style: normal;
-    text-transform: uppercase;
-    line-height: 2;
-}
-
-.secondary-images img {
-    width: 48%;
-    margin: 1%;
-    border-radius: 8px;
-}
-
-.secondary-text {
-    line-height: 1.5;
-}
-
-/* Videos Section */
-.videos-section {
-    margin-top: 2rem;
-    padding: 20px;
-    background-color: #1D1D1D;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
-    border-radius: 16px;
-    position: relative;
-}
-
-.videos-section h2 {
-    font-size: 1.5rem; /* Taille du texte global */
-    font-weight: 800;
-    font-style: italic;
-    color: #fff; /* Couleur blanche par défaut */
-    text-align: left; 
-}
-
-.title-section .highlight {
-    position: relative; /* Pour gérer le positionnement de l'élément par rapport au pseudo-élément */
-    z-index: 1; /* Le texte reste au-dessus du pseudo-élément */
-}
-
-.title-section .highlight::before {
-    content: ''; /* Génère le pseudo-élément */
-    position: absolute; /* Positionne le fond */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(
-        to right,
-        
-        rgba(3, 255, 170, 1)0%,  /* Couleur verte avec 30% d'opacité au début */
-        rgba(3, 255, 170, 0.3) 100%   /* Couleur verte opaque à 100% */
-    );    z-index: -1; /* Place le fond derrière le texte */
-}
-
-.title-section .exclamation {
-    color: #00ff99; /* Couleur verte pour l'exclamation */
-}
-
-.videos-section::after {
-    content: ''; /* Génère une image en pseudo-élément */
-    position: absolute;
-    top: 10px; /* Distance depuis le haut */
-    right: 10px; /* Distance depuis la droite */
-    width: 50px; /* Largeur de l'image */
-    height: 50px; /* Hauteur de l'image */
-    background-image: url('charles/assets/images/baguettes.png'); /* Chemin de l'image */
-    background-size: contain; /* Ajuste l'image à l'intérieur du cadre */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    z-index: 2; /* Place l'image au-dessus des autres éléments */
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.video-item {
-    background-color: #333;
-    height: 100%;
-    border-radius: 8px;
-    aspect-ratio: 190 / 162; /* Ratio de 16:9 */
-    
-}
-
-/* Article Croustillant */
-.croustillant-article {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #1D1D1D;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
-    border-radius: 16px;
-}
-.croustillant-article h2{
-    font-size: 1.5rem;
-    font-weight: 800;
-    font-style: italic;
-}
-.croustillant-article .highlight {
-    color: #00ff99;
-}
-
-.croustillant-content {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-direction: column;
-}
-
-.croustillant-text {
-    flex: 1;
-    font-weight: 800;
-    font-size: 1rem;
-    color: #00ff99;
-}
-
-/* tag button */
-
-.tags-button{
-    font-weight: 800;
-    display: flex; 
-    gap: 20px;
-}
-
-.tags-button span{
-    border-radius: 4px;
-}
-
-.tag-pop {
-    background-color: #D9D9D9;
-    color: #805353;
-    padding: 4px;
-}
-
-.tag-music {
-    background-color: #D9D9D9;
-    color: #7F32B6;
-    padding: 4px;
-}
-
-/* Footer */
-.footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #333;
-    text-align: center;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: #00ff99;
-}
+/* === Bar Container === */
 .bar-container {
     display: flex;
     align-items: center;
     font-size: 1.5rem; /* Taille de la police */
-    font-weight: bold; /* Texte en gras */
-    color: #fff; /* Couleur du texte */
-    background-color: #1c1c1c; /* Couleur de fond */
-    padding-left: 1rem; /* Espace entre la barre et le texte */
-    border-left: 4px solid #00ff99; /* Barre verticale */
-    height: 50px; /* Hauteur (optionnelle) */
-}
-
-
-.article-main {
-    margin: 30px;
-}
-
-.three-column-layout {
-    display: grid; /* Active CSS Grid */
-    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
-    gap: 20px; /* Espacement entre colonnes */
-    width: 100%; /* Prend toute la largeur */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
-}
-
-/* Styling for each column */
-.column {
-    background-color: #333; /* Couleur de fond de chaque colonne */
-     /* Espacement intérieur */
-    border-radius: 8px; /* Coins arrondis */
-    overflow: hidden; /* Coupe le contenu qui dépasse */
-}
-
-@media (max-width: 768px) {
-    .three-column-layout {
-        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
-    }
-}
-
-.video-column{
-    margin-top: 2rem;
-    padding: 20px;
-    background-color: #1D1D1D;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    position: relative;
-
-        grid-row: 1 / -1; /* Étend la div sur toutes les lignes disponibles */
-        grid-column: span 1; /* Occupe une colonne entière */
-        height: 100%; /* Remplit toute la hauteur */
-
-}
-
-/* Global Styles */
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Header Section */
-.main-header {
-    text-align: center;
-    margin-bottom: 3rem;
-
-}
-
-.main-header h1 {
-    
     font-weight: bold;
-    text-transform: uppercase;
     color: #fff;
-}
-
-.main-header .highlight {
-    color: #4CE0B3;
-}
-
-.main-header p {
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #bdbdbd;
-    padding: 0px 150px 0px 150px;
-}
-
-/* Main Content */
-.main-content {
-    display: flex;
-    gap: 2rem;
-}
-
-.left-column, .right-column {
-    flex: 1;
-}
-
-.left-column{
-    margin-left: 5em;
-}
-
-.right-column{
-    margin-right: 5em;
-}
-
-.card {
-    background-color: #333;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: left;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
-    margin:20px;
-    
-}
-
-.card img {
-    height: 50px;
-    margin-bottom: 1rem;
-}
-
-.card h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    font-weight: 800;
-}
-
-.card p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #bdbdbd;
-}
-
-/* Login Card (Right Column) */
-.login-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.login-card form label {
-    text-align: left;
-    font-size: 0.9rem;
-    color: #bdbdbd;
-    padding-top: 20px;
-}
-
-.login-card form input {
-    padding: 0.8rem;
-    border-radius: 5px;
-    border: 1px solid #4CE0B3;
     background-color: #1c1c1c;
-    color: #fff;
-    font-size: 0.9rem;
-}
-
-.password-container {
-    display: flex;
-    align-items: center;
-}
-
-.password-container input {
-    flex: 1;
-}
-
-.password-container .show-password {
-    background: none;
-    border: none;
-    color: #4CE0B3;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.login-card .login-button {
-    background-color: #007AFF;
-    border: none;
-    border-radius: 5px;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-card .login-button:hover {
-    background-color: #004792;
-}
-
-.google-login {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.google-button {
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.google-button:hover {
-    background-color: #444;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-
-    .card {
-        margin-bottom: 2rem;
-    }
-}
-
-/* Assurez-vous que la div parent utilise position relative */
-.card {
-    position: relative;
-    background-color: #1D1D1D;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-
-@media (max-width: 768px) {
-
-    .main-header p {
-        padding: 0px 10px 0px 10px;
-    }
-
-    .left-column {
-        margin-left: 0em;
-    }
-
-    .container {
-
-        padding: 1rem;
-    }
-
-    .right-column {
-        margin-right: 0em;
-    }
-}
-
-
-/* Global Styles */
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    font-weight: 600;
-}
-
-p {
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Grille principale */
-.main-content {
-    display: flex;
+    padding-left: 1rem;
+    border-left: 4px solid #00ff99;
+    width: 100%; /* S'adapte à la largeur du parent */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    
+    /* Ajoutez cette propriété pour permettre le wrapping */
     flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 40px;
 }
 
-/* Cartes */
-.option-card {
-    flex: 1 1 calc(50% - 20px); /* Deux cartes par ligne */
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* Styles pour le paragraphe à l'intérieur de .bar-container */
+.bar-container p {
+    margin: 0; /* Enlever les marges par défaut */
+    flex: 1; /* Permet au paragraphe de prendre l'espace disponible */
+    min-width: 0; /* Empêche le débordement horizontal */
+    word-wrap: break-word; /* Permet de couper les mots longs */
 }
 
-.option-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.option-card img {
-    height: 50px;
-    margin-bottom: 15px;
-}
-
-.option-card h3 {
-    font-size: 1.2rem;
-    color: #4CE0B3;
-}
-
-.option-card p {
-    font-size: 0.9rem;
-    color: #bdbdbd;
-}
-
-.left-column .card{
-    text-align: left;
-}
-
-/* Section de l'article */
-.article-container {
-    flex: 1 1 100%; /* Prend toute la largeur */
-    background-color: #1c1c1c;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 40px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.article-container h2 {
-    font-size: 1.5rem;
-    color: #4CE0B3;
-}
-
-.article-container h3 {
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-.article-container p {
-    font-size: 1rem;
-    margin-top: 10px;
-    color: #bdbdbd;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .option-card {
-        flex: 1 1 100%; /* Une carte par ligne sur mobile */
+    .bar-container {
+        font-size: 1.2rem; /* Réduit la taille du texte sur les petits écrans */
     }
 }
 
-/* Global Styles */
 
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.bento-section {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center;     /* Centre les éléments verticalement si nécessaire */
+    flex-direction: column;  /* Optionnel : aligne les éléments verticalement */
+    /* Vous pouvez ajouter d'autres styles si nécessaire */
 }
 
-h1, h2, h3 {
-    font-weight: 600;
+
+.bento-section-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;  /* Transforme l'image en élément de type bloc */
+    margin: 0 auto;  /* Centre l'image horizontalement */
 }
 
-p {
-    font-weight: 400;
-    line-height: 1.6;
+@media (max-width: 768px) {
+.bento-section-logo {
+    max-width: 30%;
+}
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
-/* Mise en page principale */
+/* Styles par défaut pour .main-layout */
 .main-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* 2/3 pour les options, 1/3 pour l'article */
-    gap: 20px;
-    margin-top: 40px;
+    display: flex;
+    flex-direction: row; /* Affichage en ligne sur PC */
 }
 
-/* Section des options */
-.option-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+/* Ordre des éléments sur PC */
+.right-column {
+    order: 1;
+    flex: 1; /* Optionnel : permet de gérer l'espace occupé */
 }
 
-.option-card-choice {
-    background-color: #1D1D1D;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid #00cc88; /* Ajout de la bordure */
+.bento-section {
+    order: 2;
+    flex: 1; /* Optionnel : permet de gérer l'espace occupé */
 }
 
-.option-card-choice:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: #4CE0B3; /* Changement de couleur au survol */
-}
-
-.option-card-choice img {
-    height: 50px;
-    margin-bottom: 15px;
-    background-color: white;
-    border-radius: 50%;
-    padding: 0.8em;
-}
-
-.option-card-choice h3 {
-    font-size: 1.2rem;
-    color: #E2DDD6;
-}
-
-.option-card-choice p {
-    font-size: 0.9rem;
-    color: #E2DDD6;
-}
-
-/* Section article */
-.article-section {
-    background-color: #1c1c1c;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.article-section h2 {
-    font-size: 1.5rem;
-    color: #4CE0B3;
-}
-
-.article-section h3 {
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-.article-section p {
-    font-size: 1rem;
-    margin-top: 10px;
-    color: #bdbdbd;
-}
-
-.toggle-button {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    background-color: transparent;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.toggle-button.active {
-    background-color: #000;
-    border-color: #fff;
-}
-
-/* Responsive */
+/* Styles spécifiques pour mobile */
 @media (max-width: 768px) {
     .main-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .article-section {
-        margin-top: 20px;
-    }
-}
-
-.header-choice .highlight{
-    color:#00cc88;
-}
-
-
-
-.left-column, .right-column {
-    flex: 1;
-}
-
-.left-column{
-    margin-left: 5em;
-}
-
-.right-column{
-    margin-right: 5em;
-}
-
-.card {
-    background-color: #333;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: left;
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
-    margin:20px;
-    
-}
-
-.card img {
-    height: 50px;
-    margin-bottom: 1rem;
-}
-
-.card h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    font-weight: 800;
-}
-
-.card p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #bdbdbd;
-}
-
-/* Login Card (Right Column) */
-.login-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.login-card form label {
-    text-align: left;
-    font-size: 0.9rem;
-    color: #bdbdbd;
-    padding-top: 20px;
-}
-
-.login-card form input {
-    padding: 0.8rem;
-    border-radius: 5px;
-    border: 1px solid #4CE0B3;
-    background-color: #1c1c1c;
-    color: #fff;
-    font-size: 0.9rem;
-}
-
-.password-container {
-    display: flex;
-    align-items: center;
-}
-
-.password-container input {
-    flex: 1;
-}
-
-.password-container .show-password {
-    background: none;
-    border: none;
-    color: #4CE0B3;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.login-card .login-button {
-    background-color: #007AFF;
-    border: none;
-    border-radius: 5px;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-card .login-button:hover {
-    background-color: #004792;
-}
-
-.google-login {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.google-button {
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.google-button:hover {
-    background-color: #444;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
-
-    .card {
-        margin-bottom: 2rem;
-    }
-}
-
-/* Assurez-vous que la div parent utilise position relative */
-.card {
-    position: relative;
-    background-color: #1D1D1D;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-
-@media (max-width: 768px) {
-
-    .main-header p {
-        padding: 0px 10px 0px 10px;
-    }
-
-    .left-column {
-        margin-left: 0em;
-    }
-
-    .container {
-
-        padding: 1rem;
+        flex-direction: column; /* Affichage en colonne sur mobile */
     }
 
     .right-column {
-        margin-right: 0em;
-    }
-}
-
-.bento-section{
-    max-width: 50%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    margin-top: 40px;
-    align-items: center;
-}
-
-.bento-section-logo{
-    height: 200px;
-}
-
-/* Style pour la grille du formulaire */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.password-container {
-    display: flex;
-    align-items: center;
-}
-
-.password-container input {
-    flex: 1;
-}
-
-.password-container button {
-    margin-left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-}
-
-/* Bouton d'inscription */
-.login-button {
-    grid-column: span 2;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
+        order: 2;
     }
 
-    .login-button {
-        grid-column: span 1; /* Ajustement automatique */
+    .bento-section {
+        order: 1;
     }
 }
