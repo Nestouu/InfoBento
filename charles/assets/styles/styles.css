@@ -3,7 +3,7 @@
 
 /* === Global Styles === */
 body {
-    margin: 0;
+    margin-bottom: 50px;
     padding: 0;
     font-family: "Inter", sans-serif;
     background-color: #262626;
@@ -16,6 +16,8 @@ body {
 h1 {
     text-transform :uppercase;
         letter-spacing: -0.05em;
+    padding: 0.5rem;
+    padding-left:1em;
 }
 
 h1, h2, h3 {
@@ -32,7 +34,7 @@ a {
     color: inherit;
 }
 
-.container {
+.container-slider {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0px 40px 20px 40px;
@@ -59,6 +61,10 @@ a {
 .navbar-expand-lg .navbar-collapse {
     text-transform: uppercase;
     font-weight: 800;
+}
+
+.navbar-toggler{
+    background-color: #ffffff;
 }
 
 
@@ -712,7 +718,7 @@ a {
 
 /* Grid Finale */
 .grid-item {
-    background-color: #333; /* Couleur des blocs */
+    background-color: #1D1D1D; /* Couleur des blocs */
     color: #fff; /* Couleur du texte */
     border-radius: 8px; /* Coins arrondis */
     display: flex;
@@ -720,8 +726,7 @@ a {
     justify-content: center;
     text-align: center;
     font-size: 1rem; /* Taille du texte */
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45), /* X 0, Y 0, Blur 25, Spread 15, Couleur noire à 15% d'opacité */
-    inset 0 0 15px rgba(0, 0, 0, 0.1); /* Ajout optionnel pour un effet supplémentaire */
+    box-shadow: inset 0px 0px 20px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Breakpoint for Mobile */
@@ -857,3 +862,181 @@ a {
     padding: 20px;
 }
 
+/*video*/
+
+.page-video h1{
+    padding: 40px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .video-container video {
+    width: 100%;
+    padding: 0px 20px 0px 20px;
+    height: auto;
+    object-fit: cover;
+    background-color: #262626;
+    
+}
+
+  .video-container .video-overlay {
+    position: absolute; /* Superposition */
+    top: 80%; /* Place au milieu verticalement */
+    left: 50%; /* Place au milieu horizontalement */
+    transform: translate(-50%, -50%); /* Centre parfaitement */
+    z-index: 10; /* Devant le contenu */
+    background: rgb(0, 0, 0); /* Arrière-plan semi-transparent */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border-radius: 4px;
+    font-size: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .video-container .video-overlay h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .video-container .video-overlay p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+
+  .video-container .video-overlay a {
+    color: #00ff7f;
+    font-weight:800
+  }
+/* Conteneur défilant */
+.main-container-slider {
+    position: relative;
+    overflow-x: auto;
+    padding: 10px 0; /* Ajoute un peu d'espace autour */
+}
+
+.chill-container-card {
+    display: flex;
+    gap: 15px; /* Augmente l'espace entre les vidéos */
+    width: max-content;
+}
+
+/* Vidéos */
+.slider-card-video {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 20vw; /* 20% de la largeur de l'écran */
+    max-width: 300px; /* Limite maximale pour des écrans larges */
+    aspect-ratio: 9 / 16; /* Garde un format vertical */
+    background-color: #1D1D1D;
+    border-radius: 10px; /* Ajoute des coins arrondis */
+    box-shadow: inset 0px 0px 25px 15px rgba(0, 0, 0, 0.3); /* Ombre intérieure */
+}
+
+.slider-card-video-interior {
+    width: 17vw; /* 1/3 de la largeur de l'écran */
+    max-width: 300px; /* Limite maximale pour des écrans larges */
+    aspect-ratio: 9 / 16; /* Maintient un format vertical */
+    background-color: #000000;
+    border-radius: 10px; /* Coins arrondis */
+}
+
+/* Scrollbar */
+.main-container-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.main-container-slider::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.main-container-slider::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Responsive : tablettes */
+@media (max-width: 768px) {
+    .slider-card-video {
+        width: 30vw; /* Plus large sur les tablettes */
+        max-width: 200px; /* Ajuste la taille maximale */
+    }
+    .video-container{
+        height: 20vh;
+    }
+    .video-container .video-overlay h2 {
+        font-size: 0.6rem;
+    }
+
+    .video-container .video-overlay a {
+        color: #4be7b7;
+        text-decoration: none;
+        font-size: 0.4rem;
+    }
+        .video-container .video-overlay {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            background: rgb(0, 0, 0);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 32px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 800;
+            width: 80%;
+            max-width: 400px;
+            min-width: 200px;
+            box-sizing: border-box;
+        }
+        .video-container .video-overlay p {
+            font-size: 0rem;
+          }
+          .slider-card-video-interior {
+            width: 30vw; /* 1/3 de la largeur de l'écran */
+            max-width: 300px; /* Limite maximale pour des écrans larges */
+            aspect-ratio: 9 / 16; /* Maintient un format vertical */
+            background-color: #000000;
+            border-radius: 10px; /* Coins arrondis */
+        }
+         
+    
+}
+
+/* Responsive : téléphones */
+@media (max-width: 480px) {
+    .slider-card-video {
+        width: 40vw; /* Taille plus grande sur téléphones */
+        max-width: 150px; /* Limite la taille sur petits écrans */
+    }
+}
+
+.container-slider{
+    padding-top: 40px;
+}
+
+.container h2{
+    text-transform: uppercase;
+    font-weight:800;
+    font-size:1em;
+    padding-top:30px;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    margin-right: 0px;
+}
