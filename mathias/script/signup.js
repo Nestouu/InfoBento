@@ -14,6 +14,8 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const prenom = document.getElementById('prenom').value;
+    const nom = document.getElementById('nom').value;
     const errorMessage = document.getElementById('error-message');
     const successMessage = document.getElementById('success-message');
 
@@ -21,37 +23,49 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
     errorMessage.style.display = 'none';
     successMessage.style.display = 'none';
 
-    // Étape 1 : Créer un utilisateur avec Supabase
-    const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password,
-        options: {
-            data: {
-                role: 'user', // Attribuer le rôle 'user'
+    try {
+        // Étape 1 : Créer un utilisateur avec Supabase
+        const { data, error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: {
+                data: {
+                    role: 'user', // Attribuer le rôle 'user'
+                },
             },
-        },
-    });
+        });
 
-    if (error) {
-        errorMessage.style.display = 'block';
-        errorMessage.textContent = 'Erreur : ' + error.message;
-        return;
-    }
-
-    // Étape 2 : Ajouter l'utilisateur dans la table 'user_roles'
-    if (data.user) {
-        const { error: roleError } = await supabaseClient
-            .from('user_roles')
-            .insert([{ user_id: data.user.id, role: 'user' }]);
-
-        if (roleError) {
+        if (error) {
             errorMessage.style.display = 'block';
-            errorMessage.textContent = 'Erreur lors de l\'attribution du rôle : ' + roleError.message;
+            errorMessage.textContent = 'Erreur : ' + error.message;
             return;
         }
 
-        successMessage.style.display = 'block';
-        window.location.href = 'userPage.html';
-        successMessage.textContent = 'Inscription réussie et rôle attribué ! Veuillez vérifier votre e-mail.';
+        // Étape 2 : Ajouter l'utilisateur dans la table 'user_roles'
+        if (data.user) {
+            const { error: roleError } = await supabaseClient
+                .from('user_roles')
+                .insert([{ 
+                    user_id: data.user.id, 
+                    role: 'user',
+                    prenom: prenom,
+                    nom: nom
+                }]);
+
+            if (roleError) {
+                errorMessage.style.display = 'block';
+                errorMessage.textContent = 'Erreur lors de l\'attribution du rôle : ' + roleError.message;
+                return;
+            }
+
+            // Afficher un message de succès et rediriger l'utilisateur
+            successMessage.style.display = 'block';
+            successMessage.textContent = 'Inscription réussie et rôle attribué ! Veuillez vérifier votre e-mail.';
+            window.location.href = 'userPage.html';
+        }
+    } catch (err) {
+        console.error('Erreur inattendue :', err);
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Une erreur inattendue est survenue.';
     }
 });

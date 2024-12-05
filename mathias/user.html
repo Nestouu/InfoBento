@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="./script/signup.js"></script>
 </head>
 <body>
-    <h1>Créer un compte</h1>
-    <form id="signup-form">
+    <h1>Inscription</h1>
+    <form class="signup-card" id="signup-form">
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" placeholder="Votre prénom" required />
+        <br><br>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" placeholder="Votre nom" required />
+        <br><br>
         <label for="email">Email :</label>
         <input type="email" id="email" placeholder="Votre email" required />
         <br><br>
@@ -21,4 +28,3 @@
     <p id="success-message" style="color: green; display: none;"></p>
 </body>
 </html>
-
