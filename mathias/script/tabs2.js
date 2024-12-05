@@ -8,30 +8,63 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 console.log('Supabase Client initialisé:', supabaseClient);
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // Mappage des IDs avec leurs sections correspondantes
     const sectionsMapping = [
-        { id: 18, sectionId: "salty", titleId: "salty-title", descriptionId: "salty-description" },
-        { id: 19, sectionId: "sweet", titleId: "sweet-title", descriptionId: "sweet-description" },
-        { id: 20, sectionId: "energetic", titleId: "energetic-title", descriptionId: "energetic-description" },
-        { id: 21, sectionId: "potion", titleId: "potion-title", descriptionId: "potion-description" },
+        { id: 18, sectionId: "salty", titleId: "salty-title", descriptionId: "salty-description", imageId: "salty-image" },
+        { id: 19, sectionId: "sweet", titleId: "sweet-title", descriptionId: "sweet-description", imageId: "sweet-image" },
+        { id: 20, sectionId: "energetic", titleId: "energetic-title", descriptionId: "energetic-description", imageId: "energetic-image" },
+        { id: 21, sectionId: "potion", titleId: "potion-title", descriptionId: "potion-description", imageId: "potion-image" },
     ];
 
+    const continueButton = document.getElementById("continue-button");
+
+    if (!continueButton) {
+        console.error("Le bouton 'Continuer' est introuvable.");
+        return;
+    }
+
+    // Masquer le bouton au départ
+    continueButton.style.display = "none";
+
+    const optionButtons = document.querySelectorAll(".option-card-choice");
+
+    optionButtons.forEach((button) => {
+        button.addEventListener("click", async (event) => {
+            const targetSectionId = button.getAttribute("data-article");
+
+            // Désactiver toutes les sections
+            document.querySelectorAll(".article-section").forEach((section) => {
+                section.classList.remove("active");
+            });
+
+            // Activer la section correspondante
+            const targetSection = document.getElementById(targetSectionId);
+            if (targetSection) {
+                targetSection.classList.add("active");
+                continueButton.style.display = "block"; // Afficher le bouton "Continuer"
+            }
+        });
+    });
+
+    // Gestion du clic sur le bouton "Continuer"
+    continueButton.addEventListener("click", () => {
+        window.location.href = "new-account.html"; // Redirection vers la page new-account.html
+    });
+
     // Fonction pour mettre à jour une section
-    const updateSection = async ({ id, sectionId, titleId, descriptionId }) => {
-        const section = document.getElementById(sectionId);
+    const updateSection = async ({ id, sectionId, titleId, descriptionId, imageId }) => {
         const titleElement = document.getElementById(titleId);
         const descriptionElement = document.getElementById(descriptionId);
+        const imageElement = document.getElementById(imageId);
 
-        if (!section || !titleElement || !descriptionElement) {
+        if (!titleElement || !descriptionElement || !imageElement) {
             console.error(`Les éléments HTML pour la section ${sectionId} ne sont pas trouvés.`);
             return;
         }
 
         try {
-            // Récupérer les données de l'article par ID
             const { data: article, error } = await supabaseClient
                 .from("article")
-                .select("title, content")
+                .select("title, content, image_url")
                 .eq("id", id)
                 .single();
 
@@ -40,15 +73,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            // Mettre à jour le contenu de la section
+            // Mettre à jour les éléments
             titleElement.textContent = article.title || "Titre non disponible";
             descriptionElement.textContent = article.content || "Description non disponible";
+            imageElement.src = article.image_url || ""; // Met à jour l'URL de l'image
+            imageElement.alt = article.title || "Image non disponible";
         } catch (err) {
             console.error(`Erreur inattendue lors de la récupération de l'article pour la section ${sectionId} :`, err);
         }
     };
 
-    // Mettre à jour chaque section
+    // Charger les données pour chaque section
     for (const section of sectionsMapping) {
         await updateSection(section);
     }
