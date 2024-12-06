@@ -415,6 +415,7 @@ a {
 
 .right-column {
     margin-right: 5em;
+    padding-left: 5em;
 }
 
 /* --- Responsive Styles for Main Content --- */
@@ -1026,6 +1027,10 @@ a {
     }
 }
 
+.container{
+    margin-left:7%;
+}
+
 .container-slider{
     padding-top: 40px;
 }
@@ -1040,3 +1045,255 @@ a {
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     margin-right: 0px;
 }
+
+.navbar .navbar-expand-lg .navbar-light .bg-light .container{
+    margin-left: 100px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Grid principale */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Colonne gauche : Liste d'articles */
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .article-card {
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+  }
+  
+  .article-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px 15px rgba(29, 29, 29, 0.80);
+  }
+  
+  .article-tags {
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tag {
+    background-color: #555;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  .article-title {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  
+  /* Colonne droite : Article mis en avant */
+  .highlight-article {
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+  }
+  
+  .highlight-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .highlight-tags {
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .highlight-title {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  
+  .highlight-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ff00cc;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+  }
+  
+  /* Responsivité */
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr; /* Une seule colonne */
+    }
+  
+    .highlight-article {
+      order: -1; /* Met la mise en avant en premier */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .article-title,
+    .highlight-title {
+      font-size: 16px;
+    }
+  
+    .tag {
+      font-size: 10px;
+      padding: 3px 8px;
+    }
+  
+    .highlight-badge {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
+  }
+
+  /* Structure principale */
+.layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Mise en avant à gauche */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Colonne gauche : Mise en avant */
+  .featured-article {
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+  }
+  
+  .featured-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .featured-title {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  
+  .featured-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ff00cc;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+  }
+  
+  .featured-tags {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Colonne droite : Liste des articles */
+  .articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .article-item {
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+  }
+  
+  .article-thumbnail {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .article-heading {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  
+  .article-labels {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tag {
+    background-color: #555;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  /* Responsivité */
+  @media (max-width: 1024px) {
+    .layout-grid {
+      grid-template-columns: 1fr; /* Une seule colonne */
+    }
+  
+    .featured-article {
+      order: 1; /* La mise en avant passe en premier */
+    }
+  
+    .articles-container {
+      order: 2; /* La liste des articles suit */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .featured-title,
+    .article-heading {
+      font-size: 16px;
+    }
+  
+    .tag {
+      font-size: 10px;
+      padding: 3px 8px;
+    }
+  
+    .featured-badge {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
+  }
