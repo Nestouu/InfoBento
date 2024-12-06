@@ -206,14 +206,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Ajouter autoplay=1 à l'URL de la vidéo
-        const videoUrlWithAutoplay = `${video.video_url}`;
+        const videoUrlWithAutoplay = `${video.video_url}${video.video_url.includes('?') ? '&' : '?'}autoplay=1`;
 
         block1.innerHTML = `
             <iframe
                 src="${videoUrlWithAutoplay}"
                 style="width: 100%; height: 300px; border: none;"
+                allow="autoplay; encrypted-media"
                 allowfullscreen
-            </iframe>
+            ></iframe>
         `;
     } catch (err) {
         console.error("Erreur inattendue :", err);

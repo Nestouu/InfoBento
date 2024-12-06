@@ -260,6 +260,11 @@ a {
     color: #7F32B6;
 }
 
+.tag-sport {
+    background-color: #D9D9D9;
+    color: #6e1616;
+}
+
 /* === Footer Styles === */
 .footer {
     display: flex;
