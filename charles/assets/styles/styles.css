@@ -105,13 +105,13 @@ a {
 }
 
 .secondary-images {
-    display: flex;
-    justify-content: space-between; /* Assure un espacement équilibré entre les images */
-    gap: 2rem; /* Espace horizontal entre les images */
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
 }
 
 .secondary-images img {
-    width: 20%; /* Prend environ la moitié de la largeur, avec un léger espace */
+    width: 80%; /* Prend environ la moitié de la largeur, avec un léger espace */
     height: auto; /* Préserve le ratio d'aspect des images */
     border-radius: 12px; /* Coins arrondis */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ajout d'une ombre pour un effet esthétique */
