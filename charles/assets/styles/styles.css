@@ -732,6 +732,29 @@ a {
     padding: 20px;
 }
 
+.grid-item h3{
+    font-size:16px !important;
+}
+
+/* Conteneur parent de l'iframe */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Définir une hauteur fixe */
+    border-radius: 15px; /* Ajoute le border-radius ici */
+    overflow: hidden; /* Important pour masquer les bords de l'iframe */
+    background-color: #000; /* Ajoute une couleur de fond au cas où l'iframe n'est pas chargée */
+  }
+  
+  /* L'iframe elle-même */
+  .iframe-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Supprime les bordures */
+  }
 /* Breakpoint for Mobile */
 @media (max-width: 768px) {
     .grid-layout {
@@ -1297,6 +1320,12 @@ a {
     }
   }
 
+
+#block1{
+    border-radius:20px !important;
+}
+
+
 #block3 {
     position: relative;
     width: 100%;
@@ -1316,6 +1345,8 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    padding: 20px;
+    border-radius:25px;
 }
 
 #block3 h3 {
@@ -1330,6 +1361,10 @@ a {
     margin-left: 5px; /* Ajouter une marge à gauche */
     padding: 10px; /* Espacement autour du texte */
     background: none; /* Supprimer le fond */
+}
+
+#block5 img{
+    border-radius:25px !important;
 }
 
 #block9 {
@@ -1351,6 +1386,7 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    padding: 20px;
 }
 
 #block9 h3 {
@@ -1372,6 +1408,8 @@ a {
     height: 100%; /* La vidéo occupe toute la hauteur */
     border: none; /* Supprime les bordures */
     display: block; /* Assure un bon comportement dans le conteneur */
+    border-radius:25px;
+
 }
 
 #block10 {
@@ -1393,6 +1431,8 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    border-radius:25px;
+
 }
 
 #block10 h3 {
@@ -1428,6 +1468,9 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    padding: 20px;
+    border-radius:25px;
+
 }
 
 #block11 h3 {
@@ -1463,6 +1506,9 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    padding: 20px;
+    border-radius:25px;
+
 }
 
 #block12 h3 {
@@ -1492,10 +1538,22 @@ a {
 }
 
 #block8 img {
-    width: 100%; /* L'image prend toute la largeur */
-    height: 100%; /* L'image prend toute la hauteur */
     object-fit: cover; /* Ajuste l'image sans déformation */
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
+    padding: 20px;
+    border-radius:25px;
+
+}
+
+#block3 img {
+    padding:20px;
+    border-radius:25px;
+
+}
+
+#block10 img {
+    padding: 20px;
+    border-radius:25px;
 }
