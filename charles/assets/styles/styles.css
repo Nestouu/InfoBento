@@ -104,11 +104,21 @@ a {
     text-transform: uppercase;
 }
 
-.secondary-images img {
-    width: 48%;
-    margin: 1%;
-    border-radius: 8px;
+.secondary-images {
+    display: flex;
+    justify-content: space-between; /* Assure un espacement équilibré entre les images */
+    gap: 2rem; /* Espace horizontal entre les images */
 }
+
+.secondary-images img {
+    width: 20%; /* Prend environ la moitié de la largeur, avec un léger espace */
+    height: auto; /* Préserve le ratio d'aspect des images */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ajout d'une ombre pour un effet esthétique */
+}
+
+
+
 
 .secondary-text {
     line-height: 1.5;
@@ -172,16 +182,29 @@ a {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes de taille égale */
+    gap: 1rem; /* Espacement entre les vidéos */
 }
 
 .video-item {
     background-color: #333;
-    height: 100%;
-    border-radius: 8px;
-    aspect-ratio: 190 / 162;
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Pour s'assurer que tout reste à l'intérieur de la div */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9; /* Pour maintenir un ratio vidéo standard */
+    height: auto;
 }
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Supprime tout espacement inattendu */
+}
+
+
 
 /* --- Article Croustillant --- */
 .croustillant-article {

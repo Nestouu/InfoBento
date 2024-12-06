@@ -393,3 +393,107 @@ document.addEventListener("DOMContentLoaded", async () => {
         block3.innerHTML = "<p>Erreur lors du chargement de l'article.</p>";
     }
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const video1 = document.getElementById("video1");
+
+    if (!video1) {
+        console.error("L'élément avec l'ID 'video1' est introuvable.");
+        return;
+    }
+
+    const videoId = 14;
+
+    try {
+        // Récupérer les données de la vidéo depuis la table featured_video
+        const { data: video, error } = await supabaseClient
+            .from("featured_video")
+            .select("video_url")
+            .eq("id", videoId)
+            .single();
+
+        if (error || !video || !video.video_url) {
+            video1.innerHTML = "<p>Vidéo non disponible.</p>";
+            console.error(error || "Aucune vidéo trouvée.");
+            return;
+        }
+
+        // Ajouter autoplay=1 à l'URL de la vidéo
+        const videoUrlWithAutoplay = `${video.video_url}`;
+
+        video1.innerHTML = `
+            <iframe
+                src="${videoUrlWithAutoplay}"
+                style="width: 100%; height: 300px; border: none;"
+                allowfullscreen
+            </iframe>
+        `;
+    } catch (err) {
+        console.error("Erreur inattendue :", err);
+        video1.innerHTML = "<p>Erreur lors du chargement des vidéos.</p>";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const video1 = document.getElementById("video1");
+
+    if (!video1) {
+        console.error("L'élément avec l'ID 'video1' est introuvable.");
+        return;
+    }
+
+    const videoId = 14;
+
+    try {
+        // Récupérer les données de la vidéo depuis la table featured_video
+        const { data: video, error } = await supabaseClient
+            .from("featured_video")
+            .select("video_url")
+            .eq("id", videoId)
+            .single();
+
+        if (error || !video || !video.video_url) {
+            video1.innerHTML = "<p>Vidéo non disponible.</p>";
+            console.error(error || "Aucune vidéo trouvée.");
+            return;
+        }
+
+        // Ajouter autoplay=1 à l'URL de la vidéo
+        const videoUrlWithAutoplay = `${video.video_url}`;
+
+        video1.innerHTML = `
+            <iframe
+                src="${videoUrlWithAutoplay}"
+                style="width: 100%; height: 300px; border: none;"
+                allowfullscreen
+            </iframe>
+        `;
+    } catch (err) {
+        console.error("Erreur inattendue :", err);
+        video1.innerHTML = "<p>Erreur lors du chargement des vidéos.</p>";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const video2 = document.getElementById("video2");
+
+    if (!video2) {
+        console.error("L'élément avec l'ID 'video2' est introuvable.");
+        return;
+    }
+
+    // URL du Short YouTube (No-Cookie) sans autoplay, loop, mute
+    const youtubeShortUrl = "https://www.youtube-nocookie.com/embed/X6-PdT0rMp0?controls=0";
+
+    // Ajouter le Short YouTube dans le div avec un iframe
+    video2.innerHTML = `
+        <iframe 
+            src="${youtubeShortUrl}" 
+            style="width: 100%; height: 300px; border: none;" 
+            allow="encrypted-media"
+            allowfullscreen
+        ></iframe>
+    `;
+});
+
+
