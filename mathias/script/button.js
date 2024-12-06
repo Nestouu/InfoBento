@@ -1,3 +1,3 @@
 document.getElementById('compose-bento-btn').addEventListener('click', () => {
-    window.location.href = 'new-account.html';
+    window.location.href = '../charles/new-account.html';
 });
