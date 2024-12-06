@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const videoId = 2;
+    const videoId = 13;
 
     try {
         // Récupérer les données de la vidéo depuis la table featured_video
@@ -74,14 +74,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Mettre à jour le contenu de block3 avec l'image et le titre de l'article
         block3.innerHTML = `
-            <img src="${article.image_url}" alt="${article.title}" />
-            <h3>${article.title}</h3>
+            <div class="block-content">
+                <img src="${article.image_url}" alt="${article.title}" />
+                <h3>${article.title}</h3>
+            </div>
         `;
+
+        // Ajouter un événement de clic à block3
+        block3.style.cursor = "pointer"; // Changer le curseur pour indiquer un élément cliquable
+        block3.addEventListener("click", () => {
+            // Rediriger vers une autre page ou exécuter une action
+            window.location.href = `articlekendrick.html`; // Exemple : redirection vers une page avec un ID
+        });
     } catch (err) {
         console.error("Erreur inattendue lors de la récupération de l'article :", err);
         block3.innerHTML = "<p>Erreur lors du chargement de l'article.</p>";
     }
 });
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     const block3 = document.getElementById("block9");
