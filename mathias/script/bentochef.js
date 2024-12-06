@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Ajouter autoplay=1 à l'URL de la vidéo
-        const videoUrlWithAutoplay = `${video.video_url}${video.video_url.includes('?') ? '&' : '?'}autoplay=1`;
+        const videoUrlWithAutoplay = `${video.video_url}${video.video_url.includes('?') ? '&' : '?'}autoplay=1&mute=1`;
 
         block1.innerHTML = `
             <iframe
