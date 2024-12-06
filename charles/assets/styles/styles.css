@@ -1297,3 +1297,206 @@ a {
       padding: 8px 12px;
     }
   }
+
+#block3 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block3 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
+
+#block3 h3 {
+    position: relative; /* Positionner le texte par rapport au conteneur */
+    color: #4CE0B3; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    font-size: 28px; /* Taille de la police */
+    font-family: 'Inter', sans-serif; /* Applique la famille de polices Inter */
+    font-weight: 800; /* Poids Extra Bold */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    margin: 0; /* Supprimer les marges */
+    margin-left: 5px; /* Ajouter une marge à gauche */
+    padding: 10px; /* Espacement autour du texte */
+    background: none; /* Supprimer le fond */
+}
+
+#block9 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block9 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
+
+#block9 h3 {
+    position: relative; /* Positionner le texte par rapport au conteneur */
+    color: #4CE0B3; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    font-size: 18px; /* Taille de la police */
+    font-family: 'Inter', sans-serif; /* Applique la famille de polices Inter */
+    font-weight: 800; /* Poids Extra Bold */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    margin: 0; /* Supprimer les marges */
+    margin-left: 5px; /* Ajouter une marge à gauche */
+    padding: 10px; /* Espacement autour du texte */
+    background: none; /* Supprimer le fond */
+}
+
+#block4 iframe {
+    width: 100%; /* La vidéo occupe toute la largeur */
+    height: 100%; /* La vidéo occupe toute la hauteur */
+    border: none; /* Supprime les bordures */
+    display: block; /* Assure un bon comportement dans le conteneur */
+}
+
+#block10 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block10 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
+
+#block10 h3 {
+    position: relative; /* Positionner le texte par rapport au conteneur */
+    color: #4CE0B3; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    font-size: 28px; /* Taille de la police */
+    font-family: 'Inter', sans-serif; /* Applique la famille de polices Inter */
+    font-weight: 800; /* Poids Extra Bold */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    margin: 0; /* Supprimer les marges */
+    margin-left: 5px; /* Ajouter une marge à gauche */
+    padding: 10px; /* Espacement autour du texte */
+    background: none; /* Supprimer le fond */
+}
+
+#block11 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block11 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
+
+#block11 h3 {
+    position: relative; /* Positionner le texte par rapport au conteneur */
+    color: #4CE0B3; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    font-size: 28px; /* Taille de la police */
+    font-family: 'Inter', sans-serif; /* Applique la famille de polices Inter */
+    font-weight: 800; /* Poids Extra Bold */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    margin: 0; /* Supprimer les marges */
+    margin-left: 5px; /* Ajouter une marge à gauche */
+    padding: 10px; /* Espacement autour du texte */
+    background: none; /* Supprimer le fond */
+}
+
+#block12 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block12 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
+
+#block12 h3 {
+    position: relative; /* Positionner le texte par rapport au conteneur */
+    color: #4CE0B3; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    font-size: 28px; /* Taille de la police */
+    font-family: 'Inter', sans-serif; /* Applique la famille de polices Inter */
+    font-weight: 800; /* Poids Extra Bold */
+    text-transform: uppercase; /* Mettre le texte en majuscule */
+    margin: 0; /* Supprimer les marges */
+    margin-left: 5px; /* Ajouter une marge à gauche */
+    padding: 10px; /* Espacement autour du texte */
+    background: none; /* Supprimer le fond */
+}
+
+#block8 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Placer le texte en bas */
+    background-color: #202020;
+}
+
+#block8 img {
+    width: 100%; /* L'image prend toute la largeur */
+    height: 100%; /* L'image prend toute la hauteur */
+    object-fit: cover; /* Ajuste l'image sans déformation */
+    position: absolute; /* Positionne l'image en arrière-plan */
+    top: 0;
+    left: 0;
+}
