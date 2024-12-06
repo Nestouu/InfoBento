@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const videoId = 8;
+    const videoId = 14;
 
     try {
         // Récupérer les données de la vidéo depuis la table featured_video
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Récupérer les données de l'article depuis la table "article"
         const { data: article, error } = await supabaseClient
             .from("article")
-            .select("title, image_url")
+            .select("image_url")
             .eq("id", articleId)
             .single();
 
@@ -247,8 +247,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Mettre à jour le contenu de block3 avec l'image et le titre de l'article
         block3.innerHTML = `
-            <img src="${article.image_url}" alt="${article.title}" />
-            <h3>${article.title}</h3>
+            <img src="${article.image_url}"/>
         `;
     } catch (err) {
         console.error("Erreur inattendue lors de la récupération de l'article :", err);
@@ -270,7 +269,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Récupérer les données de l'article depuis la table "article"
         const { data: article, error } = await supabaseClient
             .from("article")
-            .select("title, image_url")
+            .select("image_url")
             .eq("id", articleId)
             .single();
 
@@ -282,8 +281,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Mettre à jour le contenu de block3 avec l'image et le titre de l'article
         block3.innerHTML = `
-            <img src="${article.image_url}" alt="${article.title}" />
-            <h3>${article.title}</h3>
+            <img src="${article.image_url}"/>
         `;
     } catch (err) {
         console.error("Erreur inattendue lors de la récupération de l'article :", err);
