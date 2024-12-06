@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="../mathias/script/bentochef.js"></script>
 </head>
 <body>
   <header>
@@ -34,7 +36,7 @@
               <a class="nav-link" href="./page-articles.html">Article</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./videos.html">vidéos</a>
+              <a class="nav-link" href=>vidéos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./bentochef.html">Bento du Chef</a>
@@ -53,7 +55,7 @@
     
         <h1>ramen tes news 🍜</h1>
         <section class="main-article">
-            <img src="./assets/images/kendrick-article.png" alt="Kendrick Lamar" class="main-article-img">
+            <img src="https://i.ibb.co/LY4FGhP/image-1.png" alt="Kendrick Lamar" class="main-article-img">
             <div class="bar-container">
               2 athlètes à la victoire aberrante
             </div>
@@ -69,7 +71,7 @@
             </p>
 
             <div class="secondary-images">
-                <img src="./assets/images/kendrick-article.png" alt="Art 1">
+                <img src="https://i.ibb.co/R96QpKp/image-9.png" alt="Art 1">
             </div>
 
             <p class="description">
@@ -89,17 +91,18 @@
             
             <!-- Section Vidéos -->  
             <div class="column">
-                <section class="videos-section">
-                    <h2 class="title-section">NOS <span class="highlight">MEILLEURES</span><br>
-                        VIDÉOS & PODCASTS <span class="exclamation">!</span></h2>
-                    <div class="video-grid">
-                        <div class="video-item"></div>
-                        <div class="video-item"></div>
-                    </div>
+              <section class="videos-section">
+                <h2 class="title-section">NOS <span class="highlight">MEILLEURES</span><br>
+                    VIDÉOS<span class="exclamation">!</span></h2>
+                <div class="video-grid">
+                    <div class="video-item" id="video1"></div>
+                    <div class="video-item" id="video2"></div>
+                </div>
+            </section>
                 </section>
 
                 <!-- Article Croustillant -->
-                <section class="croustillant-article">
+                <section class="croustillant-article" onclick="window.location.href='articlekendrick.html';" style="cursor: pointer;">
                     <h2>L'ARTICLE <span class="highlight">CROUSTILLANT</span></h2>
                     <div class="croustillant-content">
                         <div class="croustillant-text">
