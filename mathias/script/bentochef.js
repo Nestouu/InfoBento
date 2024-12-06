@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const videoId = 13;
+    const videoId = 13; // Remplacez par l'ID de votre vidéo dans la base
 
     try {
         // Récupérer les données de la vidéo depuis la table featured_video
@@ -31,22 +31,36 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Ajouter autoplay=1 à l'URL de la vidéo
-        const videoUrlWithAutoplay = `${video.video_url}?autoplay=1&mute=1`;
+        // Ajouter les paramètres nécessaires pour autoplay, loop, etc.
+        let videoEmbedUrl = video.video_url;
+
+        if (videoEmbedUrl.includes("youtube-nocookie.com")) {
+            videoEmbedUrl += `&autoplay=1&mute=1&loop=1&playlist=${extractYouTubeId(videoEmbedUrl)}`;
+        } else if (videoEmbedUrl.includes("youtube.com") || videoEmbedUrl.includes("youtu.be")) {
+            const videoId = extractYouTubeId(videoEmbedUrl);
+            videoEmbedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`;
+        }
 
         block1.innerHTML = `
             <iframe
-                src="${videoUrlWithAutoplay}"
+                src="${videoEmbedUrl}"
                 style="width: 100%; height: 300px; border: none;"
                 allow="autoplay; encrypted-media"
                 allowfullscreen
-            </iframe>
+            ></iframe>
         `;
+
+        // Fonction pour extraire l'ID de la vidéo
+        function extractYouTubeId(url) {
+            const match = url.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
+            return match ? match[1] : null;
+        }
     } catch (err) {
         console.error("Erreur inattendue :", err);
         block1.innerHTML = "<p>Erreur lors du chargement des vidéos.</p>";
     }
 });
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     const block3 = document.getElementById("block3");
