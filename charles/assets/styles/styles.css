@@ -1424,7 +1424,7 @@ a {
     text-transform: uppercase; /* Mettre le texte en majuscule */
     margin: 0; /* Supprimer les marges */
     margin-left: 5px; /* Ajouter une marge à gauche */
-    padding: 10px; /* Espacement autour du texte */
+    padding: 60px; /* Espacement autour du texte */
     background: none; /* Supprimer le fond */
 }
 
@@ -1583,4 +1583,8 @@ a {
 #block10 img {
     padding: 20px;
     border-radius:25px;
+}
+
+.choice-bento {
+    padding: 5px;
 }
