@@ -1092,14 +1092,7 @@ a {
     display: flex;
     gap: 10px;
   }
-  
-  .tag {
-    background-color: #555;
-    color: #fff;
-    font-size: 12px;
-    padding: 5px 10px;
-    border-radius: 20px;
-  }
+
   
   .article-title {
     margin-top: 15px;
