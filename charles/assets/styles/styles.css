@@ -1557,7 +1557,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Placer le texte en bas */
-    background-color: #202020;
+    background-color: #202020; 
 }
 
 #block8 img {
@@ -1565,8 +1565,10 @@ a {
     position: absolute; /* Positionne l'image en arrière-plan */
     top: 0;
     left: 0;
-    padding: 20px;
     border-radius:25px;
+    height: 100%;
+    width: 100%;
+
 
 }
 
